@@ -1,0 +1,16 @@
+---
+export interface Props {
+  title: string;
+  bgClass?: string;
+}
+
+const { title, bgClass = "bg-placeholder-1" } = Astro.props;
+---
+
+<div class={`relative w-[423px] h-[347px] border border-white/20 group overflow-hidden ${bgClass}`}>
+    <div class="absolute inset-0 gallery-overlay opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+        <div>
+            <p class="text-white font-bold">{title}</p>
+        </div>
+    </div>
+</div>

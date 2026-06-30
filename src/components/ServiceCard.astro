@@ -1,0 +1,21 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  link?: string;
+  bgClass?: string;
+}
+
+const { title, description, link = "#", bgClass = "bg-placeholder-2" } = Astro.props;
+---
+
+<div class="bg-[#111] border border-white/20 flex flex-col h-[381px] group">
+    <div class={`h-[220px] w-full ${bgClass}`}></div>
+    <div class="p-6 flex-1 flex flex-col justify-between">
+        <div>
+            <h3 class="text-base font-bold mb-2 capitalize">{title}</h3>
+            <p class="text-[#bdbdbd] text-xs font-sans font-light">{description}</p>
+        </div>
+        <a href={link} class="text-right text-[#b71c1c] font-bold mono group-hover:translate-x-2 transition-transform">&rarr;</a>
+    </div>
+</div>

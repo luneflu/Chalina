@@ -1,0 +1,220 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import GalleryImage from "../components/GalleryImage.astro";
+---
+
+<Layout title="PT Cahaya Lintang Abadi">
+    <!-- Hero Section -->
+    <main class="w-full flex items-center justify-center p-8 min-h-screen pt-24 pb-24">
+        <div class="max-w-7xl w-full flex flex-col lg:flex-row gap-16 items-center justify-between">
+            <div class="flex-1 space-y-8">
+                <div class="inline-block border border-[#b71c1c] text-[#bdbdbd] mono text-xs px-3 py-1">
+                    Perusahaan Tepercaya Pemeliharaan Infrastruktur
+                </div>
+                <h1 class="text-6xl md:text-7xl font-bold leading-tight">
+                    Partner in <br> Excellence.
+                </h1>
+                <p class="text-[#bdbdbd] text-lg max-w-xl">
+                    Layanan berskala nasional dan profesional di bidang konstruksi, pemeliharaan jalan tol, pemeliharaan infrastruktur, jasa kebersihan, dan penyediaan tenaga kerja handal.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="bg-[#b71c1c] text-white px-8 py-4 text-sm font-bold shadow-[0_4px_6px_rgba(183,28,28,0.2)] hover:opacity-90">Hubungi Kami</a>
+                    <a href="#" class="border border-[#bdbdbd] text-white px-8 py-4 text-sm font-bold hover:bg-white/10">Layanan Kami</a>
+                </div>
+            </div>
+            
+            <div class="flex-1 flex flex-col gap-6 w-full lg:max-w-md">
+                <div class="border border-white/20 p-6 flex justify-between items-center">
+                    <div>
+                        <div class="text-4xl font-bold font-syne">2021</div>
+                        <div class="text-[#bdbdbd] mono text-sm mt-1">Tahun Berdiri</div>
+                    </div>
+                    <i class="fa-solid fa-building text-3xl"></i>
+                </div>
+                <div class="border border-white/20 p-6 flex justify-between items-center">
+                    <div>
+                        <div class="text-4xl font-bold font-syne">9+</div>
+                        <div class="text-[#bdbdbd] mono text-sm mt-1">Layanan Utama</div>
+                    </div>
+                    <i class="fa-solid fa-cogs text-3xl"></i>
+                </div>
+                <div class="border border-white/20 p-6 flex justify-between items-center">
+                    <div>
+                        <div class="text-4xl font-bold font-syne">Nasional</div>
+                        <div class="text-[#bdbdbd] mono text-sm mt-1">Skala Infrastruktur</div>
+                    </div>
+                    <i class="fa-solid fa-map-location-dot text-3xl"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <hr class="border-t border-white/20">
+
+    <!-- Tentang Perusahaan Section -->
+    <section class="w-full flex justify-center py-24 px-8">
+        <div class="max-w-7xl w-full flex flex-col md:flex-row gap-16 items-start">
+            <div class="w-full md:w-[523px] h-[502px] bg-placeholder-1 border border-white shadow-[0_25px_50px_rgba(0,0,0,0.25)]"></div>
+            
+            <div class="flex-1 flex flex-col gap-6 pt-6">
+                <div class="bg-[#b71c1c] text-white mono text-xs px-3 py-1 self-start">
+                    01 // TENTANG PERUSAHAAN
+                </div>
+                <h2 class="text-5xl font-bold font-syne leading-tight">
+                    Dirancang untuk Ketangguhan
+                </h2>
+                <p class="text-base text-gray-300 font-sans max-w-2xl leading-relaxed">
+                    Didirikan pada tahun 2021, PT Cahaya Lintang Abadi bergerak di bidang konstruksi dan penyediaan tenaga kerja dengan komitmen kuat untuk memberikan layanan yang unggul. Mengusung slogan "Partner In Excellence," kami berorientasi pada hasil dan efisiensi anggaran untuk menghadirkan solusi terbaik bagi setiap kebutuhan pelanggan.
+                </p>
+                
+                <div class="flex flex-col lg:flex-row gap-6 mt-8">
+                    <div class="flex-1 border border-white/20 p-5 flex gap-4">
+                        <div class="text-[#b71c1c] mono text-xs mt-1">01.</div>
+                        <div>
+                            <h4 class="font-bold text-sm mb-1">Keunggulan Operasional</h4>
+                            <p class="text-[#bdbdbd] text-xs font-light">Konsistensi ketat terhadap target waktu penyelesaian proyek infrastruktur.</p>
+                        </div>
+                    </div>
+                    <div class="flex-1 border border-white/20 p-5 flex gap-4">
+                        <div class="text-[#b71c1c] mono text-xs mt-1">02.</div>
+                        <div>
+                            <h4 class="font-bold text-sm mb-1">Tim Profesional</h4>
+                            <p class="text-[#bdbdbd] text-xs font-light">Profil kompetensi tenaga kerja tinggi tersertifikasi di lapangan ekstrim.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Haluan Utama Section -->
+    <section class="w-full bg-[#111] border-y border-white/20 py-32 px-8 flex justify-center">
+        <div class="max-w-7xl w-full flex flex-col items-center">
+            <div class="bg-[#b71c1c] text-white mono text-xs px-3 py-1 self-center">
+                02 // HALUAN UTAMA
+            </div>
+            <h2 class="text-5xl font-bold font-syne mt-4 mb-16 text-center">
+                Visi & Misi Perusahaan
+            </h2>
+            
+            <div class="flex flex-col md:flex-row w-full gap-0">
+                <div class="flex-1 bg-[#111] border border-white/20 p-12">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 border border-[#b71c1c] bg-[#b71c1c] flex items-center justify-center">
+                            <i class="fa-solid fa-eye text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-syne">Visi Kami</h3>
+                    </div>
+                    <p class="text-[#bdbdbd] text-base font-light leading-relaxed">
+                        Menjadi perusahaan penyedia jasa konstruksi, pemeliharaan jalan tol, dan penyedia tenaga kerja nasional utama yang diakui atas keunggulan kualitas operasional, integritas, serta efisiensi anggaran di setiap lini proyek.
+                    </p>
+                </div>
+                
+                <div class="flex-1 border border-white/20 border-l-0 p-12">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 border border-[#7f1d1d] bg-[#7f1d1d] flex items-center justify-center">
+                            <i class="fa-solid fa-bullseye text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-syne">Misi Kami</h3>
+                    </div>
+                    <ul class="text-[#bdbdbd] text-base font-light space-y-4">
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-[#b71c1c] mt-1 text-sm"></i> <span>Meningkatkan standar keselamatan dan keamanan infrastruktur.</span></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-[#b71c1c] mt-1 text-sm"></i> <span>Memberikan solusi konstruksi yang inovatif dan efisien.</span></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-check text-[#b71c1c] mt-1 text-sm"></i> <span>Membangun kemitraan jangka panjang berbasis kepercayaan.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matriks Kapabilitas / Layanan Infrastruktur Section -->
+    <section class="w-full flex justify-center py-32 px-8">
+        <div class="max-w-7xl w-full flex flex-col">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+                <div>
+                    <div class="bg-[#b71c1c] text-white mono text-xs px-3 py-1 inline-block mb-3">
+                        03 // MATRIKS KAPABILITAS
+                    </div>
+                    <h2 class="text-5xl font-bold font-syne">
+                        Layanan Infrastruktur
+                    </h2>
+                </div>
+                <div class="border-l border-[#7f1d1d] pl-4 max-w-sm">
+                    <p class="text-[#bdbdbd] text-xs font-light leading-relaxed">
+                        Sembilan pilar utama layanan konstruksi dan pemeliharaan koridor transit yang dioperasikan secara presisi dan sistematis.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+                <ServiceCard 
+                    title="Toll Road Maintenance" 
+                    description="Perbaikan struktural rutin, pemeliharaan perkerasan jalan tol, dan patching aspal pada jalur koridor utama logistik lintas provinsi." 
+                    bgClass="bg-placeholder-2" 
+                />
+                <ServiceCard 
+                    title="Traffic Cleaning Service" 
+                    description="Pekerjaan mekanis rehabilitasi, pemasangan, dan penyelarasan struktur sambungan siar muai pada jembatan dan jalan layang." 
+                    bgClass="bg-placeholder-3" 
+                />
+                <ServiceCard 
+                    title="Traffic Sign Cleaning" 
+                    description="Pembersihan berkala rambu lalu lintas, reflektor pembatas jalan, untuk menjamin visibilitas aman bagi pengendara." 
+                    bgClass="bg-placeholder-4" 
+                />
+                <ServiceCard 
+                    title="Road Cleaning" 
+                    description="Pembersihan area perkerasan jalan tol dari sisa puing, debu makadam, vegetasi liar merayap demi kelancaran laju kendaraan." 
+                    bgClass="bg-placeholder-5" 
+                />
+                <ServiceCard 
+                    title="Garden Maintenance" 
+                    description="Penataan arsitektur lanskap hijau, perawatan tanaman media jalan, pemotongan rumput di sepanjang koridor rumija jalan tol." 
+                    bgClass="bg-placeholder-6" 
+                />
+                <ServiceCard 
+                    title="Drainage System Cleaning" 
+                    description="Normalisasi, pembersihan sedimen lumpur, dan pembersihan sampah pada saluran air semen (u-ditch) penunjang badan jalan." 
+                    bgClass="bg-placeholder-7" 
+                />
+                <ServiceCard 
+                    title="Concrete Barrier Cleaning" 
+                    description="Pembersihan mekanis beton pembatas jalur (movable concrete barrier) guna menjaga visibilitas marka regulasi tetap bersih." 
+                    bgClass="bg-placeholder-8" 
+                />
+                <ServiceCard 
+                    title="Bronjong Works" 
+                    description="Pemasangan anyaman kawat baja berlapis seng dengan isi batu (gabion) untuk penahan tebing rawan longsor di tepi jalur arteri." 
+                    bgClass="bg-placeholder-9" 
+                />
+                <ServiceCard 
+                    title="Penyedia Tenaga Kerja" 
+                    description="Penyediaan dan manajemen terintegrasi tim operasional lapangan tangguh bersertifikasi khusus untuk industri konstruksi berat." 
+                    bgClass="bg-placeholder-10" 
+                />
+            </div>
+        </div>
+    </section>
+    
+    <!-- Rekam Visual / Galeri Section -->
+    <section class="w-full bg-[#111] py-32 px-8 flex justify-center">
+        <div class="max-w-7xl w-full flex flex-col">
+            <div class="mb-16">
+                <div class="bg-[#b71c1c] text-white mono text-xs px-3 py-1 inline-block mb-3">
+                    04 // REKAM VISUAL
+                </div>
+                <h2 class="text-5xl font-bold font-syne">
+                    Galeri Proyek Aktual
+                </h2>
+            </div>
+            
+            <div class="flex gap-4">
+                <GalleryImage title="Proyek Manado" bgClass="bg-placeholder-1" />
+                <GalleryImage title="Proyek Manado" bgClass="bg-placeholder-2" />
+                <GalleryImage title="Proyek Manado" bgClass="bg-placeholder-3" />
+            </div>
+        </div>
+    </section>
+</Layout>
