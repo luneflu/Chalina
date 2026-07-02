@@ -550,60 +550,105 @@
     </section>
 
     <!-- Hubungi Kami Section -->
-    <section class="w-full flex justify-center py-32 px-8">
-        <div class="max-w-7xl w-full flex flex-col md:flex-row gap-16">
-            <div class="w-full md:w-1/3 flex flex-col">
-                <div class="text-red-600 font-mono text-xs px-3 py-1 inline-block mb-3 self-start">
-                    #7 // HUBUNGI KAMI
+    <section class="w-full bg-black flex justify-center py-32 px-8">
+        <div class="max-w-7xl w-full flex flex-col lg:flex-row justify-between items-start gap-16">
+            <!-- Left Column (Heading & Form) -->
+            <div class="w-full lg:max-w-[757px] flex-1 flex flex-col gap-8">
+                <!-- Header -->
+                <div class="flex flex-col gap-2">
+                    <span class="text-[#b71c1c] font-mono text-xs">07 // HUBUNGI KAMI</span>
+                    <h2 class="text-[#f8f8f8] font-syne text-[48px] font-bold leading-tight">Koneksi Enterprise</h2>
                 </div>
-                <h2 class="text-5xl font-bold font-syne mb-8">Koneksi Enterprise</h2>
-                <div class="mt-auto space-y-6">
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 border border-white/20 flex items-center justify-center text-red-700">
-                            <i class="fa-solid fa-building"></i>
-                        </div>
-                        <div>
-                            <div class="text-gray-400 font-mono text-xs mb-1">
-                                Head Office
-                            </div>
-                            <p class="font-bold text-sm font-sans text-white">
-                                Mensana Tower LT 6 Unit K,<br />Jatiasih, Kota Bekasi, Jawa
-                                Barat
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="w-full md:w-2/3 border border-white/20 p-8 md:p-12 bg-neutral-900">
-                <form class="flex flex-col gap-6" onsubmit="event.preventDefault()">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="flex flex-col gap-2">
-                            <label class="text-gray-400 font-mono text-xs">NAMA LENGKAP</label>
-                            <input type="text"
-                                class="bg-transparent border-b border-white/30 pb-2 text-white font-sans focus:outline-none focus:border-red-700 transition-colors" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label class="text-gray-400 font-mono text-xs">EMAIL</label>
-                            <input type="email"
-                                class="bg-transparent border-b border-white/30 pb-2 text-white font-sans focus:outline-none focus:border-red-700 transition-colors" />
-                        </div>
+                <!-- Form -->
+                <form class="flex flex-col gap-4 w-full" onsubmit="event.preventDefault()">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="NAMA LENGKAP"
+                            class="bg-[#111111] border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-[#b71c1c] w-full" />
+                        <input type="email" placeholder="EMAIL"
+                            class="bg-[#111111] border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-[#b71c1c] w-full" />
                     </div>
-                    <div class="flex flex-col gap-2">
-                        <label class="text-gray-400 font-mono text-xs">SUBJEK</label>
-                        <input type="text"
-                            class="bg-transparent border-b border-white/30 pb-2 text-white font-sans focus:outline-none focus:border-red-700 transition-colors" />
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label class="text-gray-400 font-mono text-xs">PESAN ATAU SPESIFIKASI PROYEK</label>
-                        <textarea rows="4"
-                            class="bg-transparent border-b border-white/30 pb-2 text-white font-sans focus:outline-none focus:border-red-700 transition-colors resize-none mt-2"></textarea>
-                    </div>
+                    <input type="text" placeholder="SUBJEK"
+                        class="bg-[#111111] border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-[#b71c1c] w-full" />
+                    <textarea rows="4" placeholder="PESAN ATAU SPESIFIKASI PROYEK"
+                        class="bg-[#111111] border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-[#b71c1c] w-full resize-none h-[114px]"></textarea>
                     <button type="submit"
-                        class="bg-red-700 text-white px-8 py-4 text-sm font-bold shadow-[0_4px_6px_rgba(183,28,28,0.2)] hover:bg-red-800 transition-colors self-start mt-4">
+                        class="bg-[#b71c1c] text-white font-mono text-[12px] font-bold h-12 w-[150px] flex items-center justify-center hover:bg-red-800 transition-colors cursor-pointer uppercase">
                         KIRIM PESAN
                     </button>
                 </form>
+            </div>
+
+            <!-- Right Column (Info & Coordinates) -->
+            <div class="w-full lg:max-w-[523px] flex-1 flex flex-col gap-8">
+                <!-- Info Card -->
+                <div class="w-full bg-[#111111] border border-zinc-700 p-6 flex flex-col gap-4">
+                    <!-- Head Office -->
+                    <div class="flex flex-col gap-1">
+                        <div class="flex items-center gap-2 text-[#b71c1c]">
+                            <i class="fa-solid fa-building text-xs"></i>
+                            <span class="font-mono text-[12px] font-bold text-white uppercase">Head Office</span>
+                        </div>
+                        <p class="font-mono text-[12px] text-[#bdbdbd] leading-relaxed">
+                            Mensana Tower LT 6 Unit K, Jatiasih, Kota Bekasi, Jawa Barat
+                        </p>
+                    </div>
+
+                    <!-- Branch Support Hubs 1 -->
+                    <div class="flex flex-col gap-1">
+                        <div class="flex items-center gap-2 text-[#7f1d1d]">
+                            <i class="fa-solid fa-sitemap text-xs"></i>
+                            <span class="font-mono text-[12px] font-bold text-white uppercase">Branch Support Hubs
+                                1</span>
+                        </div>
+                        <p class="font-mono text-[12px] text-[#bdbdbd] leading-relaxed">
+                            Tamansari Metropolitan, New Bunaken G8/8A, Manado, 95256
+                        </p>
+                    </div>
+
+                    <!-- Branch Support Hubs 2 -->
+                    <div class="flex flex-col gap-1">
+                        <div class="flex items-center gap-2 text-[#7f1d1d]">
+                            <i class="fa-solid fa-sitemap text-xs"></i>
+                            <span class="font-mono text-[12px] font-bold text-white uppercase">Branch Support Hubs
+                                2</span>
+                        </div>
+                        <p class="font-mono text-[12px] text-[#bdbdbd] leading-relaxed">
+                            Ruko Citra Buana Kodan, RT.07/RW.05, Sawah, Tohudan, Kec. Colomadu, Kabupaten Karanganyar,
+                            Jawa Tengah, 57173
+                        </p>
+                    </div>
+
+                    <!-- Contact Info Box -->
+                    <div class="border border-zinc-700 p-4 flex flex-col gap-1 mt-2">
+                        <p class="font-sans text-[12px] text-white">
+                            Enterprise Line: 0823 2081 3439
+                        </p>
+                        <p class="font-sans text-[12px] text-white">
+                            Email Route: chalinalintangabadi@gmail.com
+                        </p>
+                    </div>
+
+                    <!-- WhatsApp Link -->
+                    <div class="mt-2">
+                        <a href="https://wa.me/6282320813439" target="_blank"
+                            class="bg-[#25d366] text-black font-sans text-[12px] flex items-center justify-center gap-2 px-5 py-3 hover:opacity-90 transition-opacity w-[211px] h-10">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span>Hubungi Via WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coordinates Card -->
+                <div class="border border-zinc-700 p-[1px] w-full h-[200px]">
+                    <div class="bg-black w-full h-full flex flex-col justify-center items-center p-4">
+                        <i class="fa-solid fa-location-dot text-[24px] text-[#b71c1c] mb-2"></i>
+                        <div class="font-mono text-[10px] font-bold text-white uppercase text-center">Bekasi, West Java,
+                            Indonesia</div>
+                        <div class="font-mono text-[9px] font-normal text-white/50 uppercase text-center mt-1">Sistem
+                            Koordinat Geografis Terkunci</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
