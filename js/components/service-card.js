@@ -4,12 +4,11 @@ class ServiceCard extends HTMLElement {
     const description = this.getAttribute('description') || '';
     const link = this.getAttribute('link') || '#';
     const src = this.getAttribute('src');
-    const bgClass = src ? '' : (this.getAttribute('bgClass') || 'bg-placeholder-2');
     const imgHtml = src ? `<img src="${src}" alt="${title}" class="w-full h-full object-cover">` : '';
 
     this.innerHTML = /*html*/`
       <div class="bg-[#111] border border-white/10 flex flex-col h-[381px] group m-4">
-          <div class="h-[220px] w-full relative ${bgClass}">${imgHtml}</div>
+          <div class="h-[220px] w-full relative">${imgHtml}</div>
           <div class="p-6 flex-1 flex flex-col justify-between bg-[#111111]">
               <div>
                   <h3 class="text-base font-bold mb-2 capitalize">${title}</h3>

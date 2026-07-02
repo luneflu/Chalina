@@ -22,49 +22,6 @@ body {
     font-family: var(--font-sans);
 }
 
-/* Placeholders */
-.bg-placeholder-1 {
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("images/concrete-barrier.png") center/cover;
-}
-
-.bg-placeholder-2 {
-    background-color: #333;
-}
-
-.bg-placeholder-3 {
-    background-color: #444;
-}
-
-.bg-placeholder-4 {
-    background-color: #555;
-}
-
-.bg-placeholder-5 {
-    background-color: #666;
-}
-
-.bg-placeholder-6 {
-    background-color: #777;
-}
-
-.bg-placeholder-7 {
-    background-color: #888;
-}
-
-.bg-placeholder-8 {
-    background-color: #999;
-}
-
-.bg-placeholder-9 {
-    background-color: #222;
-}
-
-.bg-placeholder-10 {
-    background-color: #aaa;
-}
-
 .gallery-overlay {
     background: linear-gradient(to top,
             rgba(0, 0, 0, 0.8) 0%,
