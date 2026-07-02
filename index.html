@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8" />
@@ -25,7 +25,7 @@
     <app-navigation></app-navigation>
 
     <!-- Hero Section -->
-    <main class="w-full flex items-center justify-center p-4 md:p-8 min-h-screen pt-24 pb-24 relative overflow-hidden">
+    <main id="beranda" class="w-full flex items-center justify-center p-4 md:p-8 min-h-screen pt-24 pb-24 relative overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-zinc-900/50 mix-blend-multiply z-10"></div>
             <img src="images/labor-supply.png" alt="Hero Background" class="w-full h-full object-cover opacity-50" />
@@ -47,10 +47,10 @@
                     dan penyediaan tenaga kerja handal.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#"
+                    <a href="#kontak"
                         class="bg-red-700 text-white px-8 py-4 text-sm font-bold shadow-[0_4px_6px_rgba(183,28,28,0.2)] hover:opacity-90 transition-opacity">Hubungi
                         Kami</a>
-                    <a href="#"
+                    <a href="#layanan"
                         class="border border-gray-400 text-white px-8 py-4 text-sm font-bold hover:bg-white/10 transition-colors">Layanan
                         Kami</a>
                 </div>
@@ -91,7 +91,7 @@
     <hr class="border-t border-white/20" />
 
     <!-- Tentang Perusahaan Section -->
-    <section class="w-full flex justify-center py-16 md:py-24 px-4 md:px-8">
+    <section id="tentang" class="w-full flex justify-center py-16 md:py-24 px-4 md:px-8">
         <div class="max-w-7xl w-full flex flex-col md:flex-row gap-16 items-start">
             <div
                 class="w-full md:w-[523px] h-[300px] md:h-[502px] bg-placeholder-1 border border-white shadow-[0_25px_50px_rgba(0,0,0,0.25)]">
@@ -142,7 +142,7 @@
     </section>
 
     <!-- Haluan Utama Section -->
-    <section class="w-full bg-neutral-900 border-y border-white/20 py-16 md:py-32 px-4 md:px-8 flex justify-center">
+    <section id="visi-misi" class="w-full bg-neutral-900 border-y border-white/20 py-16 md:py-32 px-4 md:px-8 flex justify-center">
         <div class="max-w-7xl w-full flex flex-col items-center">
             <div class="text-red-600 font-mono text-xs px-3 py-1 self-center">
                 #2 // HALUAN UTAMA
@@ -202,7 +202,7 @@
     </section>
 
     <!-- Matriks Kapabilitas / Layanan Infrastruktur Section -->
-    <section class="w-full flex justify-center py-16 md:py-32 px-4 md:px-8">
+    <section id="layanan" class="w-full flex justify-center py-16 md:py-32 px-4 md:px-8">
         <div class="max-w-7xl w-full flex flex-col">
             <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
                 <div>
@@ -252,7 +252,7 @@
     </section>
 
     <!-- Rekam Visual / Galeri Section -->
-    <section class="w-full bg-neutral-900 py-16 md:py-32 px-4 md:px-8 flex justify-center">
+    <section id="galeri" class="w-full bg-neutral-900 py-16 md:py-32 px-4 md:px-8 flex justify-center">
         <div class="max-w-7xl w-full flex flex-col">
             <div class="mb-16">
                 <div class="text-red-600 font-mono text-xs px-3 py-1 inline-block mb-3">
@@ -309,7 +309,7 @@
     </section>
 
     <!-- Parameter Operasional Section -->
-    <section class="w-full bg-neutral-900 py-16 md:py-32 px-4 md:px-8 flex justify-center border-t border-white/20">
+    <section id="keunggulan" class="w-full bg-neutral-900 py-16 md:py-32 px-4 md:px-8 flex justify-center border-t border-white/20">
         <div class="max-w-7xl w-full flex flex-col items-center">
             <div class="text-red-600 font-mono text-xs px-3 py-1 self-center">
                 #6 // PARAMETER OPERASIONAL
@@ -342,7 +342,7 @@
     </section>
 
     <!-- Pengalaman Proyek Historis Section -->
-    <section class="w-full flex justify-center py-16 md:py-32 px-4 md:px-8">
+    <section id="pengalaman" class="w-full flex justify-center py-16 md:py-32 px-4 md:px-8">
         <div class="max-w-7xl w-full flex flex-col gap-10 md:gap-24">
             <div class="w-full">
                 <div class="text-red-600 font-mono text-xs px-3 py-1 inline-block mb-3">
@@ -440,7 +440,7 @@
     </section>
 
     <!-- Hubungi Kami Section -->
-    <section class="w-full bg-black flex justify-center py-16 md:py-32 px-4 md:px-8">
+    <section id="kontak" class="w-full bg-black flex justify-center py-16 md:py-32 px-4 md:px-8">
         <div class="max-w-7xl w-full flex flex-col lg:flex-row justify-between items-start gap-16">
             <!-- Left Column (Heading & Form) -->
             <div class="w-full lg:max-w-[757px] flex-1 flex flex-col gap-8">
@@ -560,7 +560,7 @@
                 <span>STRATEGIS <span class="hidden md:inline">NASIONAL</span></span>
                 <span class="md:hidden">NASIONAL</span>
             </h2>
-            <a href="#"
+            <a href="#kontak"
                 class="bg-red-700 text-white px-10 py-5 text-sm font-bold font-sans hover:bg-gray-200 uppercase tracking-wider transition-colors shadow-lg shadow-white/10">
                 Konsultasi Sekarang
             </a>
@@ -594,19 +594,19 @@
                 <h4 class="font-mono text-xs text-white uppercase tracking-wider mb-4">Navigasi Cepat</h4>
                 <ul class="flex flex-col gap-3">
                     <li>
-                        <a href="#"
+                        <a href="#beranda"
                             class="font-sans text-xs text-[#bdbdbd] hover:text-white transition-colors">Beranda</a>
                     </li>
                     <li>
-                        <a href="#" class="font-sans text-xs text-[#bdbdbd] hover:text-white transition-colors">Tentang
+                        <a href="#tentang" class="font-sans text-xs text-[#bdbdbd] hover:text-white transition-colors">Tentang
                             Profil</a>
                     </li>
                     <li>
-                        <a href="#" class="font-sans text-xs text-[#bdbdbd] hover:text-white transition-colors">Visi &
+                        <a href="#visi-misi" class="font-sans text-xs text-[#bdbdbd] hover:text-white transition-colors">Visi &
                             Misi</a>
                     </li>
                     <li>
-                        <a href="#" class="font-sans text-xs text-[#bdbdbd] hover:text-white transition-colors">Core
+                        <a href="#layanan" class="font-sans text-xs text-[#bdbdbd] hover:text-white transition-colors">Core
                             Capability Matrix</a>
                     </li>
                 </ul>

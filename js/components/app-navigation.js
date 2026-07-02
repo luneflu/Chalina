@@ -13,27 +13,27 @@ class AppNavigation extends HTMLElement {
               </div>
 
               <div class="flex items-center gap-8 hidden lg:flex">
-                  <a href="#"
+                  <a href="#beranda"
                       class="font-sans font-semibold text-xs text-[#f8f8f8] border-b border-[#b71c1c] pb-1">Beranda</a>
-                  <a href="#"
+                  <a href="#tentang"
                       class="font-sans font-semibold text-xs text-[#bdbdbd] pb-1 hover:text-white transition-colors">Tentang</a>
-                  <a href="#"
+                  <a href="#visi-misi"
                       class="font-sans font-semibold text-xs text-[#bdbdbd] pb-1 hover:text-white transition-colors">Visi
                       & Misi</a>
-                  <a href="#"
+                  <a href="#layanan"
                       class="font-sans font-semibold text-xs text-[#bdbdbd] pb-1 hover:text-white transition-colors">Layanan</a>
-                  <a href="#"
+                  <a href="#galeri"
                       class="font-sans font-semibold text-xs text-[#bdbdbd] pb-1 hover:text-white transition-colors">Galeri</a>
-                  <a href="#"
+                  <a href="#pengalaman"
                       class="font-sans font-semibold text-xs text-[#bdbdbd] pb-1 hover:text-white transition-colors">Pengalaman</a>
-                  <a href="#"
+                  <a href="#keunggulan"
                       class="font-sans font-semibold text-xs text-[#bdbdbd] pb-1 hover:text-white transition-colors">Keunggulan</a>
-                  <a href="#"
+                  <a href="#kontak"
                       class="font-sans font-semibold text-xs text-[#bdbdbd] pb-1 hover:text-white transition-colors">Kontak</a>
               </div>
 
               <div class="hidden lg:block">
-                  <a href="#"
+                  <a href="#kontak"
                       class="flex items-center justify-center border border-[#b71c1c] p-[1px] h-[41px] w-[147px] hover:bg-[#b71c1c] transition-colors group">
                       <span class="font-sans font-bold text-xs text-[#f8f8f8]">Hubungi Kami</span>
                   </a>
@@ -48,15 +48,15 @@ class AppNavigation extends HTMLElement {
           <!-- Mobile Dropdown Menu -->
           <div id="mobile-menu"
               class="hidden absolute top-[87px] left-0 w-full bg-black border-b border-white/20 flex-col items-center py-6 gap-6 lg:hidden">
-              <a href="#" class="font-sans font-semibold text-sm text-[#f8f8f8]">Beranda</a>
-              <a href="#" class="font-sans font-semibold text-sm text-[#bdbdbd]">Tentang</a>
-              <a href="#" class="font-sans font-semibold text-sm text-[#bdbdbd]">Visi & Misi</a>
-              <a href="#" class="font-sans font-semibold text-sm text-[#bdbdbd]">Layanan</a>
-              <a href="#" class="font-sans font-semibold text-sm text-[#bdbdbd]">Galeri</a>
-              <a href="#" class="font-sans font-semibold text-sm text-[#bdbdbd]">Pengalaman</a>
-              <a href="#" class="font-sans font-semibold text-sm text-[#bdbdbd]">Keunggulan</a>
-              <a href="#" class="font-sans font-semibold text-sm text-[#bdbdbd]">Kontak</a>
-              <a href="#"
+              <a href="#beranda" class="font-sans font-semibold text-sm text-[#f8f8f8]">Beranda</a>
+              <a href="#tentang" class="font-sans font-semibold text-sm text-[#bdbdbd]">Tentang</a>
+              <a href="#visi-misi" class="font-sans font-semibold text-sm text-[#bdbdbd]">Visi & Misi</a>
+              <a href="#layanan" class="font-sans font-semibold text-sm text-[#bdbdbd]">Layanan</a>
+              <a href="#galeri" class="font-sans font-semibold text-sm text-[#bdbdbd]">Galeri</a>
+              <a href="#pengalaman" class="font-sans font-semibold text-sm text-[#bdbdbd]">Pengalaman</a>
+              <a href="#keunggulan" class="font-sans font-semibold text-sm text-[#bdbdbd]">Keunggulan</a>
+              <a href="#kontak" class="font-sans font-semibold text-sm text-[#bdbdbd]">Kontak</a>
+              <a href="#kontak"
                   class="flex items-center justify-center border border-[#b71c1c] p-[1px] h-[41px] w-[147px] bg-[#b71c1c] text-white font-bold text-xs mt-4">Hubungi
                   Kami</a>
           </div>
@@ -94,13 +94,76 @@ class AppNavigation extends HTMLElement {
             this._updateNavbar();
         });
 
-        window.addEventListener('scroll', this._updateNavbar);
-        this._updateNavbar();
+        const closeMenu = () => {
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+            this._updateNavbar();
+        };
+
+        const mobileNavLinks = menu.querySelectorAll('a[href^="#"]');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        const desktopLinks = this.querySelectorAll('.lg\\:flex a[href^="#"]');
+
+        this._updateScrollspy = () => {
+            const sections = document.querySelectorAll('main[id], section[id]');
+            let currentSectionId = '';
+            const scrollPosition = window.scrollY + 120;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            if (window.scrollY < 50) {
+                currentSectionId = 'beranda';
+            }
+
+            if (currentSectionId) {
+                desktopLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === `#${currentSectionId}`) {
+                        link.classList.remove('text-[#bdbdbd]');
+                        link.classList.add('text-[#f8f8f8]', 'border-b', 'border-[#b71c1c]');
+                    } else {
+                        link.classList.remove('text-[#f8f8f8]', 'border-b', 'border-[#b71c1c]');
+                        link.classList.add('text-[#bdbdbd]');
+                    }
+                });
+
+                mobileNavLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === `#${currentSectionId}`) {
+                        link.classList.remove('text-[#bdbdbd]');
+                        link.classList.add('text-[#f8f8f8]');
+                    } else {
+                        link.classList.remove('text-[#f8f8f8]');
+                        link.classList.add('text-[#bdbdbd]');
+                    }
+                });
+            }
+        };
+
+        this._onScroll = () => {
+            this._updateNavbar();
+            this._updateScrollspy();
+        };
+
+        window.addEventListener('scroll', this._onScroll);
+        this._onScroll();
+        setTimeout(() => this._onScroll(), 100);
     }
 
     disconnectedCallback() {
-        if (this._updateNavbar) {
-            window.removeEventListener('scroll', this._updateNavbar);
+        if (this._onScroll) {
+            window.removeEventListener('scroll', this._onScroll);
         }
     }
 }
