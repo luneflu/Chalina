@@ -27,3 +27,12 @@ body {
             rgba(0, 0, 0, 0.8) 0%,
             rgba(0, 0, 0, 0) 100%);
 }
+.gallery-card {
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}

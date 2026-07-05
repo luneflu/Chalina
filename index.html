@@ -7,7 +7,8 @@
     <link rel="icon" href="favicon.ico" />
     <title>PT Cahaya Lintang Abadi</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+    </script>
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +29,8 @@
         class="w-full flex items-center justify-center p-4 md:p-8 min-h-screen pt-24 pb-24 relative overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-zinc-900/50 mix-blend-multiply z-10"></div>
-            <img src="images/labor-supply.png" alt="Hero Background" class="w-full h-full object-cover opacity-50" loading="lazy" />
+            <img src="images/labor-supply.png" alt="Hero Background" class="w-full h-full object-cover opacity-50"
+                loading="lazy" />
         </div>
 
         <div class="max-w-7xl w-full flex flex-col lg:flex-row gap-16 items-center justify-between relative z-10">
@@ -94,7 +96,8 @@
     <section id="tentang" class="w-full flex justify-center py-16 md:py-24 px-4 md:px-8">
         <div class="max-w-7xl w-full flex flex-col md:flex-row gap-16 items-start">
             <img src="images/concrete-barrier.png" alt="Tentang PT Cahaya Lintang Abadi"
-                class="w-full md:w-[523px] h-[300px] md:h-[502px] object-cover border border-white shadow-[0_25px_50px_rgba(0,0,0,0.25)]" loading="lazy" />
+                class="w-full md:w-[523px] h-[300px] md:h-[502px] object-cover border border-white shadow-[0_25px_50px_rgba(0,0,0,0.25)]"
+                loading="lazy" />
             <div class="flex-1 flex flex-col gap-6 pt-6">
                 <div class="text-yellow-400 font-mono text-xs px-3 py-1 self-start">
                     #1 // TENTANG PERUSAHAAN
@@ -251,7 +254,7 @@
         </div>
     </section>
 
-    <!-- Rekam Visual / Galeri Section -->
+    <!-- Rekam Visual / Galeri Section (dengan Lightbox) -->
     <section id="galeri" class="w-full bg-neutral-900 py-16 md:py-32 px-4 md:px-8 flex justify-center">
         <div class="max-w-7xl w-full flex flex-col">
             <div class="mb-16">
@@ -261,49 +264,51 @@
                 <h2 class="text-3xl md:text-5xl font-bold font-syne">Galeri Proyek Aktual</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <gallery-image subtitle="EXPANSION JOINT WORKS" title="REHABILITASI SAMBUNGAN MUAI"
-                    src="images/traffic-cleaning-service.png"></gallery-image>
-                <gallery-image subtitle="DIRECTIONAL SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU PETUNJUK JALAN"
-                    src="images/traffic-sign-cleaning.png"></gallery-image>
-                <gallery-image subtitle="PAVEMENT PRESERVATION" title="REHABILITASI SAMBUNGAN MUAI JALAN TOL"
-                    src="images/road-maintenance.png"></gallery-image>
-                <gallery-image subtitle="INFORMATION SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU INFORMASI JALAN"
-                    src="images/traffic-sign-cleaning.png"></gallery-image>
-                <gallery-image subtitle="ROADWAY CLEANING" title="PEMBERSIHAN BADAN JALAN TOL"
-                    src="images/road-cleaning.png"></gallery-image>
-                <gallery-image subtitle="REGULATORY SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU LARANGAN"
-                    src="images/traffic-sign-cleaning.png"></gallery-image>
-                <gallery-image subtitle="VEGETATION MANAGEMENT" title="PENGENDALIAN GULMA"
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
+                <!-- Setiap item gallery sekarang punya onclick untuk membuka lightbox -->
+                <gallery-image onclick="openLightbox(this)" subtitle="EXPANSION JOINT WORKS"
+                    title="REHABILITASI SAMBUNGAN MUAI" src="images/traffic-cleaning-service.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="DIRECTIONAL SIGN MAINTENANCE"
+                    title="PEMBERSIHAN RAMBU PETUNJUK JALAN" src="images/traffic-sign-cleaning.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="PAVEMENT PRESERVATION"
+                    title="REHABILITASI SAMBUNGAN MUAI JALAN TOL" src="images/road-maintenance.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="INFORMATION SIGN MAINTENANCE"
+                    title="PEMBERSIHAN RAMBU INFORMASI JALAN" src="images/traffic-sign-cleaning.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="ROADWAY CLEANING"
+                    title="PEMBERSIHAN BADAN JALAN TOL" src="images/road-cleaning.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="REGULATORY SIGN MAINTENANCE"
+                    title="PEMBERSIHAN RAMBU LARANGAN" src="images/traffic-sign-cleaning.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="VEGETATION MANAGEMENT" title="PENGENDALIAN GULMA"
                     src="images/garden-maintenance.png"></gallery-image>
-                <gallery-image subtitle="WARNING SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU PETUNJUK TIKUNGAN"
-                    src="images/traffic-sign-cleaning.png"></gallery-image>
-                <gallery-image subtitle="DRAINAGE MAINTENANCE" title="PEMBERSIHAN SALURAN DRAINASE"
-                    src="images/drainage-system-cleaning.png"></gallery-image>
-                <gallery-image subtitle="LANDSCAPE MAINTENANCE" title="PERAWATAN TANAMAN HIAS"
-                    src="images/garden-maintenance.png"></gallery-image>
-                <gallery-image subtitle="HORTICULTURAL SERVICES" title="PEMELIHARAAN TANAMAN HIAS"
-                    src="images/garden-maintenance.png"></gallery-image>
-                <gallery-image subtitle="ROAD MARKER MAINTENANCE" title="PEMBERSIHAN PATOK KILOMETER JALAN TOL"
-                    src="images/road-cleaning.png"></gallery-image>
-                <gallery-image subtitle="DRAINAGE REHABILITATION" title="NORMALISASI SALURAN DRAINASE"
-                    src="images/drainage-system-cleaning.png"></gallery-image>
-                <gallery-image subtitle="CONCRETE BARRIER MAINTENANCE" title="PEMBERSIHAN CONCRETE BARRIER"
+                <gallery-image onclick="openLightbox(this)" subtitle="WARNING SIGN MAINTENANCE"
+                    title="PEMBERSIHAN RAMBU PETUNJUK TIKUNGAN" src="images/traffic-sign-cleaning.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="DRAINAGE MAINTENANCE"
+                    title="PEMBERSIHAN SALURAN DRAINASE" src="images/drainage-system-cleaning.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="LANDSCAPE MAINTENANCE"
+                    title="PERAWATAN TANAMAN HIAS" src="images/garden-maintenance.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="HORTICULTURAL SERVICES"
+                    title="PEMELIHARAAN TANAMAN HIAS" src="images/garden-maintenance.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="ROAD MARKER MAINTENANCE"
+                    title="PEMBERSIHAN PATOK KILOMETER JALAN TOL" src="images/road-cleaning.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="DRAINAGE REHABILITATION"
+                    title="NORMALISASI SALURAN DRAINASE" src="images/drainage-system-cleaning.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="CONCRETE BARRIER MAINTENANCE"
+                    title="PEMBERSIHAN CONCRETE BARRIER" src="images/concrete-barrier.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="DRAINAGE MAINTENANCE"
+                    title="PEMBERSIHAN SALURAN DRAINASE" src="images/drainage-system-cleaning.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="INFRASTRUCTURE CLEANING"
+                    title="PEMBERSIHAN CONCRETE BARRIER BERTEKANAN TINGGI"
                     src="images/concrete-barrier.png"></gallery-image>
-                <gallery-image subtitle="DRAINAGE MAINTENANCE" title="PEMBERSIHAN SALURAN DRAINASE"
-                    src="images/drainage-system-cleaning.png"></gallery-image>
-                <gallery-image subtitle="INFRASTRUCTURE CLEANING" title="PEMBERSIHAN CONCRETE BARRIER BERTEKANAN TINGGI"
-                    src="images/concrete-barrier.png"></gallery-image>
-                <gallery-image subtitle="SLOPE PROTECTION WORKS" title="PEKERJAAN BRONJONG PENAHAN TANAH"
-                    src="images/gabion-works.png"></gallery-image>
-                <gallery-image subtitle="HIGH-PRESSURE CLEANING" title="PENCUCIAN CONCRETE BARRIER"
-                    src="images/concrete-barrier.png"></gallery-image>
-                <gallery-image subtitle="SAFETY BRIEFING" title="BRIEFING KESELAMATAN KERJA"
-                    src="images/labor-supply.png"></gallery-image>
-                <gallery-image subtitle="OPERATIONAL READINESS" title="KESIAPAN PERSONEL OPERASIONAL"
-                    src="images/labor-supply.png"></gallery-image>
-                <gallery-image subtitle="WORKFORCE DEPLOYMENT" title="MOBILISASI TENAGA KERJA"
-                    src="images/labor-supply.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="SLOPE PROTECTION WORKS"
+                    title="PEKERJAAN BRONJONG PENAHAN TANAH" src="images/gabion-works.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="HIGH-PRESSURE CLEANING"
+                    title="PENCUCIAN CONCRETE BARRIER" src="images/concrete-barrier.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="SAFETY BRIEFING"
+                    title="BRIEFING KESELAMATAN KERJA" src="images/labor-supply.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="OPERATIONAL READINESS"
+                    title="KESIAPAN PERSONEL OPERASIONAL" src="images/labor-supply.png"></gallery-image>
+                <gallery-image onclick="openLightbox(this)" subtitle="WORKFORCE DEPLOYMENT"
+                    title="MOBILISASI TENAGA KERJA" src="images/labor-supply.png"></gallery-image>
             </div>
         </div>
     </section>
@@ -557,8 +562,8 @@
                 class="text-2xl sm:text-4xl md:text-6xl font-bold font-syne mb-10 leading-tight text-white flex flex-col md:block gap-2">
                 <span>MENGAMANKAN</span>
                 <span>INFRASTRUKTUR</span>
-                <span>STRATEGIS <span class="hidden md:inline">NASIONAL</span></span>
-                <span class="md:hidden">NASIONAL</span>
+                <span>STRATEGIS <span class="hidden md:inline">KITA</span></span>
+                <span class="md:hidden">KITA</span>
             </h2>
             <a href="#kontak"
                 class="bg-yellow-500 text-white px-10 py-5 text-sm font-bold font-sans hover:bg-gray-200 uppercase tracking-wider transition-colors shadow-lg shadow-white/10">
@@ -667,13 +672,21 @@
         </div>
     </footer>
 
+    <!-- LIGHTBOX OVERLAY -->
+    <div id="lightbox" class="fixed inset-0 w-full h-full bg-[rgba(0,0,0,0.92)] hidden justify-center items-center z-[9999] cursor-pointer p-8" onclick="closeLightbox(event)">
+        <button class="absolute top-6 right-8 text-white text-[2.5rem] cursor-pointer transition-transform duration-200 bg-transparent border-none z-[10000] hover:scale-110 hover:text-yellow-400" onclick="closeLightbox(event)">&times;</button>
+        <img id="lightboxImg" class="max-w-[90vw] max-h-[90vh] object-contain border-2 border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)]" src="" alt="Galeri Proyek" />
+        <div id="lightboxCaption" class="absolute bottom-8 inset-x-0 text-center text-[#ccc] font-sans text-[0.9rem] tracking-[0.5px] px-4"></div>
+    </div>
+
     <script type="module" src="./js/components/app-navigation.js"></script>
     <script type="module" src="./js/components/service-card.js"></script>
     <script type="module" src="./js/components/advantage-card.js"></script>
     <script type="module" src="./js/components/gallery-image.js"></script>
     <script type="module" src="./js/layouts/app-footer.js"></script>
 
-
+    <!-- Lightbox JavaScript -->
+    <script src="./js/lightbox.js"></script>
 </body>
 
 </html>
