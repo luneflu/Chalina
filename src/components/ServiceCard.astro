@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Props {
 	title: string;
 	description: string;
@@ -7,11 +10,20 @@ interface Props {
 }
 
 const { title, description, link = "#", src, ...rest } = Astro.props;
+
+// Use import.meta.glob to dynamically load images from src/assets
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*');
+const imagePath = src ? `/src/assets${src}` : null;
+const imageLoader = imagePath && images[imagePath] ? images[imagePath] : null;
 ---
 
 <div class="bg-neutral-900 border border-white/10 flex flex-col h-[381px] group m-4 cursor-pointer" onclick={`window.openLightbox && window.openLightbox('${src || ''}', '${title}', '')`} {...rest}>
     <div class="h-[220px] w-full relative">
-        {src && <img src={src} alt={title} class="w-full h-full object-cover" loading="lazy" />}
+        {imageLoader ? (
+            <Image src={imageLoader()} alt={title} class="w-full h-full object-cover" loading="lazy" />
+        ) : src ? (
+            <img src={src} alt={title} class="w-full h-full object-cover" loading="lazy" />
+        ) : null}
     </div>
     <div class="p-6 flex-1 flex flex-col justify-between bg-neutral-900">
         <div>
