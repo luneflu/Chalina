@@ -1,0 +1,537 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AppNavigation from '../components/AppNavigation.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import AdvantageCard from '../components/AdvantageCard.astro';
+import GalleryImage from '../components/GalleryImage.astro';
+---
+
+<Layout title="PT Cahaya Lintang Abadi">
+    <!-- Navigation -->
+    <AppNavigation />
+
+    <!-- Hero Section -->
+    <main id="beranda" class="w-full flex items-center justify-center p-4 md:p-8 min-h-screen pt-24 pb-24 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-zinc-900/50 mix-blend-multiply z-10"></div>
+            <img src="/images/hero.webp" alt="Hero Background" class="w-full h-full object-cover opacity-50" loading="lazy" />
+        </div>
+
+        <div class="max-w-7xl w-full flex flex-col lg:flex-row gap-16 items-center justify-between relative z-10">
+            <div class="flex-1 space-y-8">
+                <div class="inline-block border-l border-yellow-400 font-mono text-sm px-3 py-1" data-aos="fade-up">
+                    Perusahaan Tepercaya Pemeliharaan Infrastruktur
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-syne font-bold leading-tight" data-aos="fade-up" data-aos-delay="100">
+                    Partner in <br />
+                    <span class="bg-gradient-to-r from-yellow-400 to-yellow-700 bg-clip-text text-transparent">Excellence.</span>
+                </h1>
+                <p class="text-lg max-w-xl font-sans" data-aos="fade-up" data-aos-delay="200">
+                    Layanan berskala nasional dan profesional di bidang konstruksi,
+                    pemeliharaan jalan tol, pemeliharaan infrastruktur, jasa kebersihan,
+                    dan penyediaan tenaga kerja handal.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#kontak" class="bg-yellow-500 text-white px-8 py-4 text-sm font-bold shadow-[0_4px_6px_rgba(234,179,8,0.25)] hover:opacity-90 transition-opacity">Hubungi Kami</a>
+                    <a href="#layanan" class="border border-gray-400 text-white px-8 py-4 text-sm font-bold hover:bg-white/10 transition-colors">Layanan Kami</a>
+                </div>
+            </div>
+
+            <div class="flex-1 flex flex-col gap-6 w-full lg:max-w-md">
+                <div class="border border-white/20 p-6 flex justify-between items-center bg-white/5" data-aos="fade-left" data-aos-delay="400">
+                    <div>
+                        <div class="text-4xl font-bold font-syne">2021</div>
+                        <div class="text-gray-400 font-mono text-sm mt-1">Tahun Berdiri</div>
+                    </div>
+                    <i class="fa-solid fa-building text-3xl text-yellow-400/80"></i>
+                </div>
+                <div class="border border-white/20 p-6 flex justify-between items-center bg-white/5" data-aos="fade-left" data-aos-delay="500">
+                    <div>
+                        <div class="text-4xl font-bold font-syne">9+</div>
+                        <div class="text-gray-400 font-mono text-sm mt-1">Layanan Utama</div>
+                    </div>
+                    <i class="fa-solid fa-cogs text-3xl text-yellow-400/80"></i>
+                </div>
+                <div class="border border-white/20 p-6 flex justify-between items-center bg-white/5" data-aos="fade-left" data-aos-delay="600">
+                    <div>
+                        <div class="text-4xl font-bold font-syne">Nasional</div>
+                        <div class="text-gray-400 font-mono text-sm mt-1">Skala Infrastruktur</div>
+                    </div>
+                    <i class="fa-solid fa-map-location-dot text-3xl text-yellow-400/80"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <hr class="border-t border-white/20" />
+
+    <!-- Tentang Perusahaan Section -->
+    <section id="tentang" class="w-full flex justify-center py-16 md:py-24 px-4 md:px-8">
+        <div class="max-w-7xl w-full flex flex-col md:flex-row gap-16 items-start">
+            <img src="/images/about.webp" alt="Tentang PT Cahaya Lintang Abadi" class="w-full md:w-[523px] h-[300px] md:h-[502px] object-cover shadow-[0_25px_50px_rgba(0,0,0,0.25)]" loading="lazy" data-aos="fade-right" />
+            <div class="flex-1 flex flex-col gap-6 pt-6" data-aos="fade-left">
+                <div class="text-yellow-400 font-mono text-xs px-3 py-1 self-start">
+                    #1 // TENTANG PERUSAHAAN
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold font-syne leading-tight">
+                    Dirancang untuk Ketangguhan
+                </h2>
+                <p class="text-base text-gray-400 font-sans max-w-2xl leading-relaxed">
+                    Didirikan pada tahun 2021, PT Cahaya Lintang Abadi bergerak di
+                    bidang konstruksi dan penyediaan tenaga kerja dengan komitmen kuat
+                    untuk memberikan layanan yang unggul. Mengusung slogan
+                    <span class="text-white">"Partner In Excellence,"</span> kami
+                    berorientasi pada hasil dan efisiensi anggaran untuk menghadirkan
+                    solusi terbaik bagi setiap kebutuhan pelanggan.
+                </p>
+                <div class="flex flex-col lg:flex-row gap-6 mt-8">
+                    <div class="flex-1 border border-white/20 p-5 flex gap-4 bg-white/5">
+                        <div class="text-yellow-500 font-mono text-xs mt-1">01.</div>
+                        <div>
+                            <h4 class="font-bold text-sm mb-1 font-sans text-white">
+                                Keunggulan Operasional
+                            </h4>
+                            <p class="text-gray-400 text-xs font-light font-sans">
+                                Konsistensi ketat terhadap target waktu penyelesaian proyek
+                                infrastruktur.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex-1 border border-white/20 p-5 flex gap-4 bg-white/5">
+                        <div class="text-yellow-500 font-mono text-xs mt-1">02.</div>
+                        <div>
+                            <h4 class="font-bold text-sm mb-1 font-sans text-white">
+                                Tim Profesional
+                            </h4>
+                            <p class="text-gray-400 text-xs font-light font-sans">
+                                Profil kompetensi tenaga kerja tinggi tersertifikasi di
+                                lapangan ekstrim.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Haluan Utama Section -->
+    <section id="visi-misi" class="w-full bg-neutral-900 border-y border-white/20 py-16 md:py-32 px-4 md:px-8 flex justify-center">
+        <div class="max-w-7xl w-full flex flex-col items-center">
+            <div class="text-yellow-400 font-mono text-xs px-3 py-1 self-center" data-aos="fade-up">
+                #2 // HALUAN UTAMA
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold font-syne mt-4 mb-16 text-center" data-aos="fade-up" data-aos-delay="100">
+                Visi & Misi Perusahaan
+            </h2>
+            <div class="flex flex-col md:flex-row w-full gap-0">
+                <div class="flex-1 bg-neutral-900 border border-white/20 p-8 md:p-12" data-aos="fade-right">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 border border-yellow-500 text-yellow-500 bg-yellow-500/10 flex items-center justify-center">
+                            <i class="fa-solid fa-eye fa-lg"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-syne text-white">Visi Kami</h3>
+                    </div>
+                    <p class="text-gray-400 text-base font-light font-sans leading-relaxed">
+                        Menjadi perusahaan penyedia jasa konstruksi, pemeliharaan jalan
+                        tol, dan penyedia tenaga kerja nasional utama yang diakui atas
+                        keunggulan kualitas operasional, integritas, serta efisiensi
+                        anggaran di setiap lini proyek.
+                    </p>
+                </div>
+
+                <div class="flex-1 border border-white/20 border-t-0 md:border-t md:border-l-0 p-8 md:p-12" data-aos="fade-left">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 border border-yellow-500 text-yellow-500 bg-yellow-500/10 flex items-center justify-center">
+                            <i class="fa-solid fa-bullseye fa-lg"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-syne text-white">Misi Kami</h3>
+                    </div>
+                    <ul class="text-gray-400 text-base font-light font-sans space-y-4">
+                        <li class="flex gap-3">
+                            <span class="font-mono text-yellow-500">01.</span>
+                            <span>Menyelenggarakan tata kelola pemeliharaan jalan tol dan infrastruktur dengan standar regulasi keselamatan terbaik.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="font-mono text-yellow-500">02.</span>
+                            <span>Menyediakan pengelolaan sumber daya manusia (workforce supply) yang terampil, tangguh, dan bersertifikasi industri.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="font-mono text-yellow-500">03.</span>
+                            <span>Membangun kemitraan strategis jangka panjang bersama entitas BUMN dan Swasta berlandaskan azas keterbukaan dan kepuasan pelanggan.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matriks Kapabilitas / Layanan Infrastruktur Section -->
+    <section id="layanan" class="w-full flex justify-center py-16 md:py-32 px-4 md:px-8">
+        <div class="max-w-7xl w-full flex flex-col">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+                <div data-aos="fade-right">
+                    <div class="text-yellow-400 font-mono text-xs px-3 py-1 inline-block mb-3">
+                        #3 // MATRIKS Kapabilitas
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold font-syne">Layanan Infrastruktur</h2>
+                </div>
+                <div class="border-l border-yellow-700 pl-4 max-w-sm" data-aos="fade-left">
+                    <p class="text-gray-400 text-xs font-light font-sans leading-relaxed">
+                        Sembilan pilar utama layanan konstruksi dan pemeliharaan koridor
+                        transit yang dioperasikan secara presisi dan sistematis.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+                <ServiceCard title="Toll Road Maintenance"
+                    description="Perbaikan struktural rutin, pemeliharaan perkerasan jalan tol, dan patching aspal pada jalur koridor utama logistik lintas provinsi."
+                    src="/images/road-maintenance.webp" data-aos="fade-up" data-aos-delay="0" />
+                <ServiceCard title="Traffic Cleaning Service"
+                    description="Pekerjaan mekanis rehabilitasi, pemasangan, dan penyelarasan struktur sambungan siar muai pada jembatan dan jalan layang."
+                    src="/images/traffic-cleaning-service.webp" data-aos="fade-up" data-aos-delay="100" />
+                <ServiceCard title="Traffic Sign Cleaning"
+                    description="Pembersihan berkala rambu lalu lintas, reflektor pembatas jalan, untuk menjamin visibilitas aman bagi pengendara."
+                    src="/images/traffic-sign-cleaning.webp" data-aos="fade-up" data-aos-delay="200" />
+                <ServiceCard title="Road Cleaning"
+                    description="Pembersihan area perkerasan jalan tol dari sisa puing, debu makadam, vegetasi liar merayap demi kelancaran laju kendaraan."
+                    src="/images/street-sweeping-1.webp" data-aos="fade-up" data-aos-delay="0" />
+                <ServiceCard title="Garden Maintenance"
+                    description="Penataan arsitektur lanskap hijau, perawatan tanaman media jalan, pemotongan kurap di sepanjang koridor rumija jalan tol."
+                    src="/images/garden-maintenance.webp" data-aos="fade-up" data-aos-delay="100" />
+                <ServiceCard title="Drainage System Cleaning"
+                    description="Normalisasi, pembersihan sedimen lumpur, dan pembersihan sampah pada saluran air semen (u-ditch) penunjang badan jalan."
+                    src="/images/drainage-system-cleaning.webp" data-aos="fade-up" data-aos-delay="200" />
+                <ServiceCard title="Concrete Barrier Cleaning"
+                    description="Pembersihan mekanis beton pembatas jalur (movable concrete barrier) guna menjaga visibilitas marka regulasi tetap bersih."
+                    src="/images/concrete-barrier.webp" data-aos="fade-up" data-aos-delay="0" />
+                <ServiceCard title="Bronjong Works"
+                    description="Pemasangan anyaman kawat baja berlapis seng dengan isi batu (gabion) untuk penahan tebing rawan longsor di tepi jalur arteri."
+                    src="/images/gabion-works.webp" data-aos="fade-up" data-aos-delay="100" />
+                <ServiceCard title="Penyedia Tenaga Kerja"
+                    description="Penyediaan dan manajemen terintegrasi tim operasional lapangan tangguh bersertifikasi khusus untuk industri konstruksi berat."
+                    src="/images/labor-supply.webp" data-aos="fade-up" data-aos-delay="200" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Rekam Visual / Galeri Section -->
+    <section id="galeri" class="w-full bg-neutral-900 py-16 md:py-32 px-4 md:px-8 flex justify-center">
+        <div class="max-w-7xl w-full flex flex-col">
+            <div class="mb-16" data-aos="fade-up">
+                <div class="text-yellow-400 font-mono text-xs px-3 py-1 inline-block mb-3">
+                    #4 // REKAM VISUAL
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold font-syne">Galeri Proyek Aktual</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
+                <GalleryImage subtitle="PAVEMENT PRESERVATION" title="REHABILITASI SAMBUNGAN MUAI JALAN TOL" src="/images/road-maintenance.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="EXPANSION JOINT WORKS" title="REHABILITASI SAMBUNGAN MUAI" src="/images/traffic-cleaning-service.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="DIRECTIONAL SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU PETUNJUK JALAN" src="/images/traffic-road-guide-cleaning.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="REGULATORY SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU LARANGAN" src="/images/sign-cleaning-1.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="INFORMATION SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU INFORMASI JALAN" src="/images/traffic-road-information-cleaning.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="ROADWAY CLEANING" title="PEMBERSIHAN BADAN JALAN TOL" src="/images/road-cleaning.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="DRAINAGE MAINTENANCE" title="PEMBERSIHAN SALURAN DRAINASE" src="/images/drainage-system-cleaning.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="WARNING SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU PETUNJUK TIKUNGAN" src="/images/sign-cleaning-2.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="VEGETATION MANAGEMENT" title="PENGENDALIAN GULMA" src="/images/grass-cutting-1.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="ROAD MARKER MAINTENANCE" title="PEMBERSIHAN PATOK KILOMETER JALAN TOL" src="/images/path-cleaning.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="HORTICULTURAL SERVICES" title="PEMELIHARAAN TANAMAN HIAS" src="/images/garden-maintenance-4.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="LANDSCAPE MAINTENANCE" title="PERAWATAN TANAMAN HIAS" src="/images/garden-maintenance-2.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="DRAINAGE MAINTENANCE" title="PEMBERSIHAN SALURAN DRAINASE" src="/images/drainage-maintenance-1.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="CONCRETE BARRIER MAINTENANCE" title="PEMBERSIHAN CONCRETE BARRIER" src="/images/concrete-barrier.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="DRAINAGE REHABILITATION" title="NORMALISASI SALURAN DRAINASE" src="/images/drainage-maintenance-2.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="HIGH-PRESSURE CLEANING" title="PENCUCIAN CONCRETE BARRIER" src="/images/street-sweeping-1.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="SLOPE PROTECTION WORKS" title="PEKERJAAN BRONJONG PENAHAN TANAH" src="/images/gabion-works.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="INFRASTRUCTURE CLEANING" title="PEMBERSIHAN SAMPAH" src="/images/trash-cleaning-1.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="WORKFORCE DEPLOYMENT" title="MOBILISASI TENAGA KERJA" src="/images/labor-supply.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="OPERATIONAL READINESS" title="KESIAPAN PERSONEL OPERASIONAL" src="/images/toolbox-meeting.webp" data-aos="zoom-in" />
+                <GalleryImage subtitle="SAFETY BRIEFING" title="BRIEFING KESELAMATAN KERJA" src="/images/new-toolbox-meeting.webp" data-aos="zoom-in" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Parameter Operasional Section -->
+    <section id="keunggulan" class="w-full bg-neutral-900 py-16 md:py-32 px-4 md:px-8 flex justify-center border-t border-white/20">
+        <div class="max-w-7xl w-full flex flex-col items-center">
+            <div class="text-yellow-400 font-mono text-xs px-3 py-1 self-center" data-aos="fade-up">
+                #6 // PARAMETER OPERASIONAL
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold font-syne mt-4 mb-16 text-center" data-aos="fade-up" data-aos-delay="100">
+                Nilai Keunggulan Kami
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 w-full border-white/20">
+                <AdvantageCard title="Profesional" description="Manajemen operasional berbasis SLA ketat sesuai standar keselamatan nasional." icon="fa-solid fa-users-gear" data-aos="fade-up" data-aos-delay="0" />
+                <AdvantageCard title="Tepat Waktu" description="Ketepatan tinggi dalam mengeksekusi proyek penanganan konstruksi koridor." icon="fa-regular fa-clock" data-aos="fade-up" data-aos-delay="100" />
+                <AdvantageCard title="Berpengalaman" description="Rekam jejak terbukti menjaga ketahanan aset infrastruktur vital negara." icon="fa-solid fa-medal" data-aos="fade-up" data-aos-delay="200" />
+                <AdvantageCard title="SDM Berkualitas" description="Penyaringan dan pembekalan sertifikasi teknis ketat bagi seluruh personal kerja." icon="fa-solid fa-id-card" data-aos="fade-up" data-aos-delay="300" />
+                <AdvantageCard title="Customer Oriented" description="Fleksibilitas tinggi menyelaraskan kualitas output kerja dengan anggaran klien." icon="fa-solid fa-handshake" data-aos="fade-up" data-aos-delay="400" />
+                <AdvantageCard title="Operational Excellence" description="Prinsip kerja tanpa cacat (*zero delay logistic*) pada jalur transit padat." icon="fa-solid fa-bolt" data-aos="fade-up" data-aos-delay="500" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Pengalaman Proyek Historis Section -->
+    <section id="pengalaman" class="w-full flex justify-center py-16 md:py-32 px-4 md:px-8">
+        <div class="max-w-7xl w-full flex flex-col gap-10 md:gap-24">
+            <div class="w-full" data-aos="fade-right">
+                <div class="text-yellow-400 font-mono text-xs px-3 py-1 inline-block mb-3">
+                    #5 // REAL ASSET TRACK
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold font-syne">
+
+                </h2>
+            </div>
+
+            <div class="w-full relative">
+                <!-- Horizontal Line -->
+                <div class="absolute top-0 left-0 w-full h-[2px] bg-white hidden md:block"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Item 1 -->
+                    <div class="relative pt-0 md:pt-8 flex flex-col" data-aos="fade-up" data-aos-delay="0">
+                        <div class="text-white font-bold font-syne text-3xl mb-4 md:mb-8 flex items-center">
+                            2022
+                        </div>
+                        <div class="absolute left-0 top-0 w-3 h-3 bg-yellow-500 hidden md:block transform -translate-y-1/2"></div>
+                        <div class="border border-white/20 bg-neutral-900 p-4 flex-1">
+                            <h3 class="text-white font-bold text-xs mb-2 font-sans">
+                                PERAWATAN LINGKUNGAN DAN SARANA PERLENGKAPAN JALAN TOL
+                            </h3>
+                            <p class="text-gray-400 font-light text-[11px] font-sans">
+                                Ruas Jalan Tol Manado - Bitung Periode Januari 2022 sampai 30 Desember 2022
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative pt-0 md:pt-8 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-white font-bold font-syne text-3xl mb-4 md:mb-8 flex items-center">
+                            2023
+                        </div>
+                        <div class="absolute left-0 top-0 w-3 h-3 bg-yellow-700 hidden md:block transform -translate-y-1/2"></div>
+                        <div class="border border-white/20 bg-neutral-900 p-4 flex-1">
+                            <h3 class="text-white font-bold text-xs mb-2 font-sans">
+                                PERAWATAN LINGKUNGAN DAN SARANA PERLENGKAPAN JALAN TOL
+                            </h3>
+                            <p class="text-gray-400 font-light text-[11px] font-sans">
+                                Ruas Jalan Tol Manado - Bitung Periode Januari 2023 sampai 31 Maret 2023
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative pt-0 md:pt-8 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-white font-bold font-syne text-2xl mb-4 md:mb-8 flex items-center md:h-[36px]">
+                            2024–2025
+                        </div>
+                        <div class="absolute left-0 top-0 w-3 h-3 bg-yellow-500 hidden md:block transform -translate-y-1/2"></div>
+                        <div class="border border-white/20 bg-neutral-900 p-4 flex-1">
+                            <h3 class="text-white font-bold text-xs mb-2 font-sans">
+                                PERAWATAN DAN KEBERSIHAN JALAN TOL
+                            </h3>
+                            <p class="text-gray-400 font-light text-[11px] font-sans">
+                                Ruas Jalan Tol Cibitung - Cilincing Periode September 2024 sampai September 2025
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="relative pt-0 md:pt-8 flex flex-col" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-yellow-500 font-bold font-syne text-2xl mb-4 md:mb-8 flex items-center md:h-[36px]">
+                            2025–2028
+                        </div>
+                        <div class="absolute left-0 top-0 w-3 h-3 bg-yellow-700 hidden md:block transform -translate-y-1/2"></div>
+                        <div class="border border-yellow-500/40 bg-neutral-900 p-4 flex-1">
+                            <h3 class="text-yellow-500 font-bold text-xs mb-2 font-sans">
+                                PEKERJAAN PENGADAAN PERSONIL AKTIVITAS JALAN TOL
+                            </h3>
+                            <p class="text-gray-400 font-light text-[11px] font-sans">
+                                Ruas Jalan Tol Cibitung - Cilincing Periode Juni 2025 - Mei 2028
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hubungi Kami Section -->
+    <section id="kontak" class="w-full bg-black flex justify-center py-16 md:py-32 px-4 md:px-8">
+        <div class="max-w-7xl w-full flex flex-col lg:flex-row justify-between items-start gap-16">
+            <!-- Left Column (Heading & Form) -->
+            <div class="w-full lg:max-w-[757px] flex-1 flex flex-col gap-8" data-aos="fade-right">
+                <!-- Header -->
+                <div class="flex flex-col gap-2">
+                    <span class="text-yellow-500 font-mono text-xs">07 // HUBUNGI KAMI</span>
+                    <h2 class="text-neutral-50 font-syne text-4xl md:text-[48px] font-bold leading-tight">Koneksi Enterprise</h2>
+                </div>
+
+                <!-- Form -->
+                <form class="flex flex-col gap-4 w-full" onsubmit="event.preventDefault()">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="NAMA LENGKAP" class="bg-neutral-900 border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-yellow-500 w-full" />
+                        <input type="email" placeholder="EMAIL" class="bg-neutral-900 border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-yellow-500 w-full" />
+                    </div>
+                    <input type="text" placeholder="SUBJEK" class="bg-neutral-900 border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-yellow-500 w-full" />
+                    <textarea rows="4" placeholder="PESAN ATAU SPESIFIKASI PROYEK" class="bg-neutral-900 border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-yellow-500 w-full resize-none h-[114px]"></textarea>
+                    <button type="submit" class="bg-yellow-500 text-white font-mono text-[12px] font-bold h-12 w-[150px] flex items-center justify-center hover:bg-yellow-600 transition-colors cursor-pointer uppercase">
+                        KIRIM PESAN
+                    </button>
+                </form>
+            </div>
+
+            <!-- Right Column (Info & Coordinates) -->
+            <div class="w-full lg:max-w-[523px] flex-1 flex flex-col gap-8" data-aos="fade-left">
+                <!-- Info Card -->
+                <div class="w-full bg-neutral-900 border border-zinc-700 p-6 flex flex-col gap-4">
+                    <!-- Head Office -->
+                    <div class="flex flex-col gap-1">
+                        <div class="flex items-center gap-2 text-yellow-500">
+                            <i class="fa-solid fa-building text-xs"></i>
+                            <span class="font-mono text-[12px] font-bold text-white uppercase">Head Office</span>
+                        </div>
+                        <p class="font-mono text-[12px] text-neutral-400 leading-relaxed">
+                            Mensana Tower LT 6 Unit K, Jatiasih, Kota Bekasi, Jawa Barat
+                        </p>
+                    </div>
+
+                    <!-- Branch Support Hubs 1 -->
+                    <div class="flex flex-col gap-1">
+                        <div class="flex items-center gap-2 text-yellow-700">
+                            <i class="fa-solid fa-sitemap text-xs"></i>
+                            <span class="font-mono text-[12px] font-bold text-white uppercase">Branch Support Hubs 1</span>
+                        </div>
+                        <p class="font-mono text-[12px] text-neutral-400 leading-relaxed">
+                            Tamansari Metropolitan, New Bunaken G8/8A, Manado, 95256
+                        </p>
+                    </div>
+
+                    <!-- Branch Support Hubs 2 -->
+                    <div class="flex flex-col gap-1">
+                        <div class="flex items-center gap-2 text-yellow-700">
+                            <i class="fa-solid fa-sitemap text-xs"></i>
+                            <span class="font-mono text-[12px] font-bold text-white uppercase">Branch Support Hubs 2</span>
+                        </div>
+                        <p class="font-mono text-[12px] text-neutral-400 leading-relaxed">
+                            Ruko Citra Buana Kodan, RT.07/RW.05, Sawah, Tohudan, Kec. Colomadu, Kabupaten Karanganyar, Jawa Tengah, 57173
+                        </p>
+                    </div>
+
+                    <!-- Contact Info Box -->
+                    <div class="border border-zinc-700 p-4 flex flex-col gap-1 mt-2">
+                        <p class="font-sans text-[12px] text-white">
+                            Enterprise Line: 0823 2081 3439
+                        </p>
+                        <p class="font-sans text-[12px] text-white">
+                            Email Route: chalinalintangabadi@gmail.com
+                        </p>
+                    </div>
+
+                    <!-- WhatsApp Link -->
+                    <div class="mt-2">
+                        <a href="https://wa.me/6282320813439" target="_blank" class="bg-green-500 text-black font-sans text-[12px] flex items-center justify-center gap-2 px-5 py-3 hover:opacity-90 transition-opacity w-[211px] h-10">
+                            <i class="fa-brands fa-whatsapp text-sm"></i>
+                            <span>Hubungi Via WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coordinates Card -->
+                <div class="border border-zinc-700 p-[1px] w-full h-[200px]">
+                    <div class="bg-black w-full h-full">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.151182154548!2d106.91449677538523!3d-6.374475562355175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69935bdba4faef%3A0x3f62df6121003392!2sMENSANA%20TOWER%20CIBUBUR!5e0!3m2!1sen!2sid!4v1783070799330!5m2!1sen!2sid"
+                            class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final Section -->
+    <section class="w-full bg-blend-overlay bg-black/70 py-20 md:py-40 px-4 md:px-8 flex justify-center text-center border-y border-yellow-500/30 relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/80 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-yellow-500 to-transparent pointer-events-none"></div>
+        <div class="max-w-4xl w-full flex flex-col items-center relative z-10">
+            <div class="text-white/70 font-mono text-sm mb-4 tracking-widest">
+                MAXIMUM NETWORK RESILIENCE
+            </div>
+            <h2 class="text-2xl sm:text-4xl md:text-6xl font-bold font-syne mb-10 leading-tight text-white flex flex-col md:block gap-2">
+                <span>MENGAMANKAN</span>
+                <span>INFRASTRUKTUR</span>
+                <span>STRATEGIS <span class="hidden md:inline">KITA</span></span>
+                <span class="md:hidden">KITA</span>
+            </h2>
+            <a href="#kontak" class="bg-yellow-500 text-white px-10 py-5 text-sm font-bold font-sans hover:bg-gray-200 uppercase tracking-wider transition-colors shadow-lg shadow-white/10">
+                Konsultasi Sekarang
+            </a>
+        </div>
+    </section>
+
+    <footer class="w-full bg-neutral-950 pt-16 pb-10 px-4 md:px-8 flex flex-col items-center border-t border-white/10">
+        <div class="w-full max-w-[1440px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <div class="flex flex-col gap-4">
+                <div class="flex items-center gap-1.5">
+                    <a href="#beranda" class="flex items-center">
+                        <img src="/images/logo-cla.webp" alt="PT Cahaya Lintang Abadi Logo" class="h-8 md:h-10 w-auto object-contain" loading="lazy" />
+                        <span class="brand-text text-white text-sm font-semibold ml-2 uppercase">CAHAYA LINTANG ABADI</span>
+                    </a>
+                </div>
+                <p class="font-mono text-xs text-white mt-4">
+                    Partner In Excellence
+                </p>
+                <div class="flex gap-4 mt-6">
+                    <a href="#" class="text-white hover:text-yellow-500 transition-colors">
+                        <i class="fa-brands fa-linkedin-in text-base"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-yellow-500 transition-colors">
+                        <i class="fa-brands fa-youtube text-base"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col">
+                <h4 class="font-mono text-xs text-white uppercase tracking-wider mb-4">Navigasi Cepat</h4>
+                <ul class="flex flex-col gap-3">
+                    <li><a href="#beranda" class="font-sans text-xs text-neutral-400 hover:text-white transition-colors">Beranda</a></li>
+                    <li><a href="#tentang" class="font-sans text-xs text-neutral-400 hover:text-white transition-colors">Tentang Profil</a></li>
+                    <li><a href="#visi-misi" class="font-sans text-xs text-neutral-400 hover:text-white transition-colors">Visi & Misi</a></li>
+                    <li><a href="#layanan" class="font-sans text-xs text-neutral-400 hover:text-white transition-colors">Core Capability Matrix</a></li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col">
+                <h4 class="font-mono text-xs text-white uppercase tracking-wider mb-4">Produk Layanan</h4>
+                <ul class="flex flex-col gap-2">
+                    <li><a href="#" class="font-sans text-xs text-white hover:text-yellow-500 transition-colors">Toll Road Care</a></li>
+                    <li><a href="#" class="font-sans text-xs text-white hover:text-yellow-500 transition-colors">Joint Works Construction</a></li>
+                    <li><a href="#" class="font-sans text-xs text-white hover:text-yellow-500 transition-colors">Drainage Management</a></li>
+                    <li><a href="#" class="font-sans text-xs text-white hover:text-yellow-500 transition-colors">Manpower supply</a></li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col">
+                <h4 class="font-mono text-xs text-white uppercase tracking-wider mb-4">Kantor Utama</h4>
+                <div class="flex flex-col gap-3">
+                    <p class="font-mono text-xs text-white leading-relaxed">
+                        Mensana Tower LT 6 Unit K, Jatiasih, Kota Bekasi, Jawa Barat
+                    </p>
+                    <p class="font-mono text-xs text-white">
+                        Whatsapp: 0823 2081 3439
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="w-full max-w-[1440px] border-t border-white/10 pt-8 px-12 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-mono text-[11px] text-white text-center md:text-left">
+                &copy; 2026 PT Cahaya Lintang Abadi. Structural Engineering Frameworks Asset Group.
+            </p>
+            <div class="flex gap-6">
+                <a href="#" class="font-mono text-[11px] text-white hover:text-yellow-500 transition-colors">Kebijakan Privasi</a>
+                <a href="#" class="font-mono text-[11px] text-white hover:text-yellow-500 transition-colors">Kepatuhan Operasional</a>
+            </div>
+        </div>
+    </footer>
+</Layout>

@@ -1,0 +1,25 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	icon: string;
+}
+
+const { title, description, icon } = Astro.props;
+---
+
+<div class="p-8 flex flex-col justify-between border border-transparent hover:border-yellow-500 transition-colors bg-black/20 group h-[200px]" {...Astro.props}>
+    <div class="flex justify-between items-start">
+        <div class="text-2xl text-yellow-500 group-hover:scale-110 transition-transform">
+            <i class={icon}></i>
+        </div>
+    </div>
+    <div>
+        <h3 class="text-sm font-bold font-sans mb-1 text-white">
+            {title}
+        </h3>
+        <p class="text-neutral-400 font-light text-xs font-sans">
+            {description}
+        </p>
+    </div>
+</div>

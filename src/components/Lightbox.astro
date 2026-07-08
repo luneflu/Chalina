@@ -1,0 +1,54 @@
+---
+---
+
+<!-- LIGHTBOX OVERLAY -->
+<div id="lightbox"
+    class="fixed inset-0 w-full h-full bg-[rgba(0,0,0,0.92)] hidden justify-center items-center z-[9999] cursor-pointer p-8"
+>
+    <button
+        id="lightbox-close"
+        class="absolute top-6 right-8 text-white text-[2.5rem] cursor-pointer transition-transform duration-200 bg-transparent border-none z-[10000] hover:scale-110 hover:text-yellow-400"
+    >&times;</button>
+    <img id="lightboxImg"
+        class="max-w-[90vw] max-h-[90vh] object-contain border-2 border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)]"
+        src="" alt="Galeri Proyek" />
+    <div id="lightboxCaption"
+        class="absolute bottom-8 inset-x-0 text-center text-[#ccc] font-sans text-[0.9rem] tracking-[0.5px] px-4">
+    </div>
+</div>
+
+<script>
+    window.openLightbox = function(imgSrc, title, subtitle) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const caption = document.getElementById('lightboxCaption');
+        
+        if (!lightboxImg) return;
+
+        lightboxImg.src = imgSrc;
+        lightboxImg.alt = title || 'Galeri Proyek';
+        caption.textContent = subtitle ? `${subtitle} — ${title}` : title;
+
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden'; // disable scroll
+    };
+
+    window.closeLightbox = function(event) {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = ''; // enable scroll
+        if(event) event.stopPropagation();
+    };
+
+    // Events
+    document.getElementById('lightbox')?.addEventListener('click', window.closeLightbox);
+    document.getElementById('lightbox-close')?.addEventListener('click', window.closeLightbox);
+    
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            window.closeLightbox();
+        }
+    });
+</script>
