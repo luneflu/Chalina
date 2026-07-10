@@ -5,6 +5,7 @@ import AppNavigation from '../components/AppNavigation.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import AdvantageCard from '../components/AdvantageCard.astro';
 import GalleryImage from '../components/GalleryImage.astro';
+import GalleryCarousel from '../components/GalleryCarousel.astro';
 ---
 
 <Layout title="PT Cahaya Lintang Abadi">
@@ -256,7 +257,11 @@ import GalleryImage from '../components/GalleryImage.astro';
                 <GalleryImage subtitle="INFRASTRUCTURE CLEANING" title="PEMBERSIHAN SAMPAH" src="/images/trash-cleaning-1.webp" data-aos="zoom-in" />
                 <GalleryImage subtitle="WORKFORCE DEPLOYMENT" title="MOBILISASI TENAGA KERJA" src="/images/labor-supply.webp" data-aos="zoom-in" />
                 <GalleryImage subtitle="OPERATIONAL READINESS" title="KESIAPAN PERSONEL OPERASIONAL" src="/images/toolbox-meeting.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="SAFETY BRIEFING" title="BRIEFING KESELAMATAN KERJA" src="/images/new-toolbox-meeting.webp" data-aos="zoom-in" />
+
+                <!-- Carousel untuk Safety Briefing -->
+                <div data-aos="zoom-in">
+                    <GalleryCarousel />
+                </div>
             </div>
         </div>
     </section>
