@@ -4,8 +4,107 @@ import Layout from '../layouts/Layout.astro';
 import AppNavigation from '../components/AppNavigation.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import AdvantageCard from '../components/AdvantageCard.astro';
-import GalleryImage from '../components/GalleryImage.astro';
 import GalleryCarousel from '../components/GalleryCarousel.astro';
+
+const galleryCategories = [
+  {
+    title: "Pekerjaan L2-L3 (16 Feb)",
+    subtitle: "ROAD MAINTENANCE",
+    images: [
+      "/galeri/16 feb L2-L3/IMG_20260216_091226_036.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260216_101542_143.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260216_104438_835.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260216_111825_632.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260216_140415_993.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260216_154326_398.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260216_160928_609.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260216_161025_512.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260222_115857_939.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260222_153636_837.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260222_154133_597.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260223_162643_468.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260223_164948_446.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260223_171033_443.jpg",
+      "/galeri/16 feb L2-L3/IMG_20260223_183919_097.jpg"
+    ]
+  },
+  {
+    title: "Pekerjaan Minggu (15 Feb)",
+    subtitle: "WEEKEND MAINTENANCE",
+    images: [
+      "/galeri/minggu 15 feb/IMG_20260214_105838_214.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_094001_424.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_101753_804.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_102349_960.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_102747_417.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_103740_254.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_105303_827.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_134445_853.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_135830_458.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_143806_524.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_150237_864.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_161018_581.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_172211_047.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_172759_148.jpg",
+      "/galeri/minggu 15 feb/IMG_20260215_202039_782.jpg"
+    ]
+  },
+  {
+    title: "Flagman & Traffic Control",
+    subtitle: "TRAFFIC SAFETY",
+    images: [
+      "/galeri/flagman 2.png",
+      "/galeri/flagman 3.png",
+      "/galeri/flagman 4.png",
+      "/galeri/flagman 5.png",
+      "/galeri/flagman.png"
+    ]
+  },
+  {
+    title: "Armada & Logistik",
+    subtitle: "LOGISTICS & FLEET",
+    images: [
+      "/galeri/truk 1.png",
+      "/galeri/truk 2.png",
+      "/galeri/truk 3-4.png",
+      "/galeri/truk 5.png",
+      "/galeri/truk 6.png",
+      "/galeri/truk 7.png",
+      "/galeri/truk 8.png"
+    ]
+  },
+  {
+    title: "Peralatan & Kompresor",
+    subtitle: "EQUIPMENT READINESS",
+    images: [
+      "/galeri/KOMPRESOR.jpeg",
+      "/galeri/IMG_20260216_111825_632.jpg",
+      "/galeri/IMG_20260216_140415_993.jpg",
+      "/galeri/IMG_20260216_161000_777.jpg",
+      "/galeri/IMG_20260216_161144_224.jpg",
+      "/galeri/IMG_20260222_153722_234.jpg"
+    ]
+  },
+  {
+    title: "Kesiapan Personel & Briefing",
+    subtitle: "OPERATIONAL READINESS",
+    images: [
+      "/images/toolbox-meeting.webp",
+      "/images/new-toolbox-meeting.webp",
+      "/images/labor-supply.webp",
+      "/galeri/IMG-20250326-WA0009.jpg",
+      "/galeri/IMG-20250512-WA0096.jpg",
+      "/galeri/IMG-20250515-WA0274.jpg",
+      "/galeri/IMG-20250515-WA0293.jpg",
+      "/galeri/IMG-20250517-WA0040.jpg",
+      "/galeri/IMG-20250519-WA0006.jpg",
+      "/galeri/IMG-20251218-WA0025.jpg",
+      "/galeri/IMG-20251218-WA0041.jpg",
+      "/galeri/IMG_20250829_175705_278.jpg",
+      "/galeri/IMG_20250925_133909_154.jpg"
+    ]
+  }
+];
 ---
 
 <Layout title="PT Cahaya Lintang Abadi">
@@ -237,31 +336,15 @@ import GalleryCarousel from '../components/GalleryCarousel.astro';
                 <h2 class="text-3xl md:text-5xl font-bold font-syne">Galeri Proyek Aktual</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
-                <GalleryImage subtitle="PAVEMENT PRESERVATION" title="REHABILITASI SAMBUNGAN MUAI JALAN TOL" src="/images/road-maintenance-1.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="EXPANSION JOINT WORKS" title="REHABILITASI SAMBUNGAN MUAI" src="/images/traffic-cleaning-service.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="DIRECTIONAL SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU PETUNJUK JALAN" src="/images/traffic-road-guide-cleaning.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="REGULATORY SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU LARANGAN" src="/images/sign-cleaning-1.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="INFORMATION SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU INFORMASI JALAN" src="/images/traffic-road-information-cleaning.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="ROADWAY CLEANING" title="PEMBERSIHAN BADAN JALAN TOL" src="/images/road-cleaning.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="DRAINAGE MAINTENANCE" title="PEMBERSIHAN SALURAN DRAINASE" src="/images/drainage-system-cleaning.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="WARNING SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU PETUNJUK TIKUNGAN" src="/images/sign-cleaning-2.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="VEGETATION MANAGEMENT" title="PENGENDALIAN GULMA" src="/images/grass-cutting-1.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="ROAD MARKER MAINTENANCE" title="PEMBERSIHAN PATOK KILOMETER JALAN TOL" src="/images/path-cleaning.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="HORTICULTURAL SERVICES" title="PEMELIHARAAN TANAMAN HIAS" src="/images/garden-maintenance-4.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="LANDSCAPE MAINTENANCE" title="PERAWATAN TANAMAN HIAS" src="/images/garden-maintenance-2.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="DRAINAGE MAINTENANCE" title="PEMBERSIHAN SALURAN DRAINASE" src="/images/drainage-maintenance-1.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="CONCRETE BARRIER MAINTENANCE" title="PEMBERSIHAN CONCRETE BARRIER" src="/images/concrete-barrier.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="DRAINAGE REHABILITATION" title="NORMALISASI SALURAN DRAINASE" src="/images/drainage-maintenance-2.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="HIGH-PRESSURE CLEANING" title="PENCUCIAN CONCRETE BARRIER" src="/images/street-sweeping-1.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="SLOPE PROTECTION WORKS" title="PEKERJAAN BRONJONG PENAHAN TANAH" src="/images/gabion-works.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="INFRASTRUCTURE CLEANING" title="PEMBERSIHAN SAMPAH" src="/images/trash-cleaning-1.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="WORKFORCE DEPLOYMENT" title="MOBILISASI TENAGA KERJA" src="/images/labor-supply.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="OPERATIONAL READINESS" title="KESIAPAN PERSONEL OPERASIONAL" src="/images/toolbox-meeting.webp" data-aos="zoom-in" />
-
-                <!-- Carousel untuk Safety Briefing -->
-                <div data-aos="zoom-in">
-                    <GalleryCarousel />
-                </div>
+                {galleryCategories.map((category) => (
+                    <div data-aos="zoom-in">
+                        <GalleryCarousel
+                            title={category.title}
+                            subtitle={category.subtitle}
+                            images={category.images}
+                        />
+                    </div>
+                ))}
             </div>
         </div>
     </section>
@@ -289,88 +372,64 @@ import GalleryCarousel from '../components/GalleryCarousel.astro';
 
     <!-- Pengalaman Proyek Historis Section -->
     <section id="pengalaman" class="w-full flex justify-center py-16 md:py-32 px-4 md:px-8">
-        <div class="max-w-7xl w-full flex flex-col gap-10 md:gap-24">
-            <div class="w-full" data-aos="fade-right">
-                <div class="text-yellow-400 font-mono text-xs px-3 py-1 inline-block mb-3">
-                    #5 // REAL ASSET TRACK
-                </div>
-                <h2 class="text-3xl md:text-5xl font-bold font-syne">
+    <div class="max-w-7xl w-full flex flex-col gap-10 md:gap-16">
+        <div class="w-full" data-aos="fade-right">
+            <div class="text-yellow-400 font-mono text-xs px-3 py-1 inline-block mb-3">
+                #5 // REAL ASSET TRACK
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold font-syne">Pengalaman Proyek</h2>
+        </div>
 
-                </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Item 1 - 2022 -->
+            <div class="border border-white/20 bg-neutral-900 p-6 flex flex-col gap-3" data-aos="fade-up" data-aos-delay="0">
+                <span class="text-yellow-500 font-bold font-syne text-3xl">2022</span>
+                <h3 class="text-white font-bold text-sm font-sans leading-relaxed">
+                    PERAWATAN LINGKUNGAN DAN SARANA PERLENGKAPAN JALAN TOL
+                </h3>
+                <p class="text-gray-400 font-light text-xs font-sans leading-relaxed">
+                    Ruas Jalan Tol Manado - Bitung Periode Januari 2022 sampai 30 Desember 2022
+                </p>
             </div>
 
-            <div class="w-full relative">
-                <!-- Horizontal Line -->
-                <div class="absolute top-0 left-0 w-full h-[2px] bg-white hidden md:block"></div>
+            <!-- Item 2 - 2023 -->
+            <div class="border border-white/20 bg-neutral-900 p-6 flex flex-col gap-3" data-aos="fade-up" data-aos-delay="100">
+                <span class="text-yellow-500 font-bold font-syne text-3xl">2023</span>
+                <h3 class="text-white font-bold text-sm font-sans leading-relaxed">
+                    PERAWATAN LINGKUNGAN DAN SARANA PERLENGKAPAN JALAN TOL
+                </h3>
+                <p class="text-gray-400 font-light text-xs font-sans leading-relaxed">
+                    Ruas Jalan Tol Manado - Bitung Periode Januari 2023 sampai 31 Maret 2023
+                </p>
+            </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <!-- Item 1 -->
-                    <div class="relative pt-0 md:pt-8 flex flex-col" data-aos="fade-up" data-aos-delay="0">
-                        <div class="text-white font-bold font-syne text-3xl mb-4 md:mb-8 flex items-center">
-                            2022
-                        </div>
-                        <div class="absolute left-0 top-0 w-3 h-3 bg-yellow-500 hidden md:block transform -translate-y-1/2"></div>
-                        <div class="border border-white/20 bg-neutral-900 p-4 flex-1">
-                            <h3 class="text-white font-bold text-xs mb-2 font-sans">
-                                PERAWATAN LINGKUNGAN DAN SARANA PERLENGKAPAN JALAN TOL
-                            </h3>
-                            <p class="text-gray-400 font-light text-[11px] font-sans">
-                                Ruas Jalan Tol Manado - Bitung Periode Januari 2022 sampai 30 Desember 2022
-                            </p>
-                        </div>
-                    </div>
+            <!-- Item 3 - 2024-2025 -->
+            <div class="border border-white/20 bg-neutral-900 p-6 flex flex-col gap-3" data-aos="fade-up" data-aos-delay="200">
+                <span class="text-yellow-500 font-bold font-syne text-3xl">2024–2025</span>
+                <h3 class="text-white font-bold text-sm font-sans leading-relaxed">
+                    PERAWATAN DAN KEBERSIHAN JALAN TOL
+                </h3>
+                <p class="text-gray-400 font-light text-xs font-sans leading-relaxed">
+                    Ruas Jalan Tol Cibitung - Cilincing Periode September 2024 sampai September 2025
+                </p>
+            </div>
 
-                    <!-- Item 2 -->
-                    <div class="relative pt-0 md:pt-8 flex flex-col" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-white font-bold font-syne text-3xl mb-4 md:mb-8 flex items-center">
-                            2023
-                        </div>
-                        <div class="absolute left-0 top-0 w-3 h-3 bg-yellow-700 hidden md:block transform -translate-y-1/2"></div>
-                        <div class="border border-white/20 bg-neutral-900 p-4 flex-1">
-                            <h3 class="text-white font-bold text-xs mb-2 font-sans">
-                                PERAWATAN LINGKUNGAN DAN SARANA PERLENGKAPAN JALAN TOL
-                            </h3>
-                            <p class="text-gray-400 font-light text-[11px] font-sans">
-                                Ruas Jalan Tol Manado - Bitung Periode Januari 2023 sampai 31 Maret 2023
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="relative pt-0 md:pt-8 flex flex-col" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-white font-bold font-syne text-2xl mb-4 md:mb-8 flex items-center md:h-[36px]">
-                            2024–2025
-                        </div>
-                        <div class="absolute left-0 top-0 w-3 h-3 bg-yellow-500 hidden md:block transform -translate-y-1/2"></div>
-                        <div class="border border-white/20 bg-neutral-900 p-4 flex-1">
-                            <h3 class="text-white font-bold text-xs mb-2 font-sans">
-                                PERAWATAN DAN KEBERSIHAN JALAN TOL
-                            </h3>
-                            <p class="text-gray-400 font-light text-[11px] font-sans">
-                                Ruas Jalan Tol Cibitung - Cilincing Periode September 2024 sampai September 2025
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Item 4 -->
-                    <div class="relative pt-0 md:pt-8 flex flex-col" data-aos="fade-up" data-aos-delay="300">
-                        <div class="text-yellow-500 font-bold font-syne text-2xl mb-4 md:mb-8 flex items-center md:h-[36px]">
-                            2025–2028
-                        </div>
-                        <div class="absolute left-0 top-0 w-3 h-3 bg-yellow-700 hidden md:block transform -translate-y-1/2"></div>
-                        <div class="border border-yellow-500/40 bg-neutral-900 p-4 flex-1">
-                            <h3 class="text-yellow-500 font-bold text-xs mb-2 font-sans">
-                                PEKERJAAN PENGADAAN PERSONIL AKTIVITAS JALAN TOL
-                            </h3>
-                            <p class="text-gray-400 font-light text-[11px] font-sans">
-                                Ruas Jalan Tol Cibitung - Cilincing Periode Juni 2025 - Mei 2028
-                            </p>
-                        </div>
-                    </div>
+            <!-- Item 4 - 2025-2028 -->
+            <div class="border border-yellow-500/40 bg-neutral-900 p-6 flex flex-col gap-3 relative" data-aos="fade-up" data-aos-delay="300">
+                <div class="absolute top-0 right-0 bg-yellow-500 text-black font-mono text-[10px] px-2 py-1 uppercase tracking-wider">
+                    Aktif
                 </div>
+                <span class="text-yellow-500 font-bold font-syne text-3xl">2025–2028</span>
+                <h3 class="text-yellow-500 font-bold text-sm font-sans leading-relaxed">
+                    PEKERJAAN PENGADAAN PERSONIL AKTIVITAS JALAN TOL
+                </h3>
+                <p class="text-gray-400 font-light text-xs font-sans leading-relaxed">
+                    Ruas Jalan Tol Cibitung - Cilincing Periode Juni 2025 - Mei 2028
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Hubungi Kami Section -->
     <section id="kontak" class="w-full bg-black flex justify-center py-16 md:py-32 px-4 md:px-8">
