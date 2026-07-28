@@ -4,8 +4,100 @@ import Layout from '../layouts/Layout.astro';
 import AppNavigation from '../components/AppNavigation.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import AdvantageCard from '../components/AdvantageCard.astro';
-import GalleryImage from '../components/GalleryImage.astro';
 import GalleryCarousel from '../components/GalleryCarousel.astro';
+
+const galleryCategories = [
+  {
+    title: "Perawatan Jalan Tol ",
+    subtitle: "ROAD MAINTENANCE",
+    images: [
+      "/galeri/16 feb L2-L3/l2_l3_1.webp",
+      "/galeri/16 feb L2-L3/l2_l3_2.webp",
+      "/galeri/16 feb L2-L3/l2_l3_3.webp",
+      "/galeri/16 feb L2-L3/l2_l3_4.webp",
+      "/galeri/16 feb L2-L3/l2_l3_5.webp",
+      "/galeri/16 feb L2-L3/l2_l3_6.webp",
+      "/galeri/16 feb L2-L3/l2_l3_7.webp",
+      "/galeri/16 feb L2-L3/l2_l3_8.webp",
+      "/galeri/16 feb L2-L3/l2_l3_9.webp",
+      "/galeri/16 feb L2-L3/l2_l3_10.webp",
+      "/galeri/16 feb L2-L3/l2_l3_11.webp",
+      "/galeri/16 feb L2-L3/l2_l3_12.webp",
+      "/galeri/16 feb L2-L3/l2_l3_13.webp",
+      "/galeri/16 feb L2-L3/l2_l3_14.webp",
+      "/galeri/16 feb L2-L3/l2_l3_15.webp"
+    ]
+  },
+  {
+    title: "Perawatan drainase & gorong-gorong",
+    subtitle: "DRAINAGE MAINTENANCE",
+    images: [
+      "/images/drainage-system-cleaning.webp",
+        "/images/drainage-maintenance-1.webp",
+        "/images/drainage-maintenance-2.webp",
+        "/galeri/gor1.webp",
+        "/galeri/gor2.webp",
+        "/galeri/gor3.webp",
+      
+    ]
+  },
+  {
+    title: "Perawatan Taman",
+    subtitle: "Garden Maintenance",
+    images: [
+      "/images/garden-maintenance.webp",
+      "/images/garden-maintenance-2.webp",
+      "/images/garden-maintenance-4.webp",
+    ]
+  },
+  {
+    title: "Pembersihan rambu & marka jalan",
+    subtitle: "TRAFFIC SIGN CLEANING",
+    images: [
+      "/images/traffic-sign-cleaning.webp",
+      "/galeri/personel_3.webp",
+      "/galeri/personel_4.webp",
+      "/galeri/personel_7.webp",
+      "/galeri/personel_11.webp",
+      "/galeri/personel_9.webp",
+      "/galeri/personel_10.webp"
+    ]
+  },
+  {
+    title: "Pembersihan jalan ",
+    subtitle: "ROAD CLEANING",
+    images: [
+      "/galeri/personel_5.webp",
+      "/images/personel_12.webp",
+      "/images/path-cleaning.webp",
+      "/images/trash-cleaning-1.webp",
+      "/images/traffic-cleaning-service.webp",
+      "/galeri/cleaning_paravet_4.webp",
+      "/images/concrete-barrier.webp"
+    ]
+  },
+  {
+    title: "Kesiapan Personel & Briefing",
+    subtitle: "OPERATIONAL READINESS",
+    images: [
+      "/images/toolbox-meeting.webp",
+      "/images/new-toolbox-meeting.webp",
+      "/images/labor-supply.webp",
+      "/galeri/personel_1.webp",
+      //"/galeri/personel_2.webp",
+      "/galeri/personel_6.webp",
+    ]
+  },
+  {
+    title: "outsourcing tenaga kerja",
+    subtitle: "LABOR OUTSOURCING",
+    images: [
+      "/images/outsourcing.webp",
+     
+      
+    ]
+  },
+];
 ---
 
 <Layout title="PT Cahaya Lintang Abadi">
@@ -26,61 +118,111 @@ import GalleryCarousel from '../components/GalleryCarousel.astro';
     <main id="beranda" class="w-full flex items-center justify-center p-4 md:p-8 min-h-screen pt-24 pb-24 relative overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-zinc-900/50 mix-blend-multiply z-10"></div>
-            <img src="/images/hero.webp" alt="Hero Background" class="w-full h-full object-cover opacity-50" loading="eager" />
+            <video 
+                id="hero-video"
+                autoplay 
+                loop 
+                muted
+                playsinline 
+                 class="w-full h-full object-cover opacity-90"
+            >
+                <source src="/video/calina_home.mp4" type="video/mp4" />
+            </video>
+            <!-- Sound toggle button -->
+            <button id="sound-toggle" onclick="toggleSound()" class="absolute bottom-20 right-6 z-20 bg-black/50 border border-white/30 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/70 transition-all" title="Toggle suara">
+                <span id="sound-icon">🔇</span>
+            </button>
+            <!-- Animated ambient orbs -->
+            <div class="hero-orb absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-yellow-500/5 blur-3xl animate-float" style="animation-duration:7s"></div>
+            <div class="hero-orb absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-yellow-400/4 blur-3xl animate-float" style="animation-duration:9s;animation-delay:2s"></div>
         </div>
 
-        <div class="max-w-7xl w-full flex flex-col lg:flex-row gap-16 items-center justify-between relative z-10">
-            <div class="flex-1 space-y-8">
-                <div class="inline-block border-l border-yellow-400 font-mono text-sm px-3 py-1" data-aos="fade-up">
-                    Perusahaan Tepercaya Pemeliharaan Infrastruktur
+        <div class="max-w-6xl w-full relative z-10">
+            <!-- Slides Container -->
+            <div class="relative w-full">
+                <!-- Slide 1 -->
+                <div class="hero-slide w-full flex flex-col lg:flex-row items-center justify-between gap-12 transition-all duration-700 opacity-100 z-10 relative" data-slide="0">
+                    <div class="w-full lg:w-7/12 text-left flex flex-col gap-6" data-aos="fade-up">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-syne font-bold leading-tight text-white">
+                            Maintenance <span class="bg-gradient-to-r from-yellow-400 to-yellow-700 bg-clip-text text-transparent">Services</span> Solutions
+                        </h1>
+                        <p class="text-base md:text-lg text-gray-300 font-sans leading-relaxed">
+                            PT Cahaya Lintang Abadi merupakan perusahaan yang bergerak di bidang penyedia jasa perawatan jalan tol, pemeliharaan infrastruktur, jasa kebersihan, dan penyediaan tenaga kerja.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 mt-2">
+                            <a href="#kontak" class="btn-glow bg-yellow-500 text-white px-8 py-4 text-sm font-bold shadow-[0_4px_6px_rgba(234,179,8,0.25)] hover:bg-yellow-400 transition-colors text-center">Hubungi Kami</a>
+                            <a href="#layanan" class="border border-gray-400 text-white px-8 py-4 text-sm font-bold hover:bg-white/10 transition-colors text-center">Layanan Kami</a>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-5/12 flex flex-col items-center justify-center text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-48 h-48 md:w-64 md:h-64 flex items-center justify-center ">
+                            <img src="/images/logo-cla.webp" alt="PT Cahaya Lintang Abadi" class="max-w-full max-h-full object-contain" />
+                        </div>
+                        <div class="mt-6 bg-yellow-500/10 border border-yellow-500/30 px-4 py-2 rounded-full">
+                            <h5 class="text-yellow-500 font-mono text-xs uppercase tracking-widest">Toll Road Maintenance Specialist</h5>
+                        </div>
+                    </div>
                 </div>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-syne font-bold leading-tight" data-aos="fade-up" data-aos-delay="100">
-                    Partner in <br />
-                    <span class="bg-gradient-to-r from-yellow-400 to-yellow-700 bg-clip-text text-transparent">Excellence.</span>
-                </h1>
-                <p class="text-lg max-w-xl font-sans" data-aos="fade-up" data-aos-delay="200">
-                    Layanan berskala nasional dan profesional di bidang konstruksi,
-                    pemeliharaan jalan tol, pemeliharaan infrastruktur, jasa kebersihan,
-                    dan penyediaan tenaga kerja handal.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="300">
-                    <a href="#kontak" class="bg-yellow-500 text-white px-8 py-4 text-sm font-bold shadow-[0_4px_6px_rgba(234,179,8,0.25)] hover:opacity-90 transition-opacity">Hubungi Kami</a>
-                    <a href="#layanan" class="border border-gray-400 text-white px-8 py-4 text-sm font-bold hover:bg-white/10 transition-colors">Layanan Kami</a>
+
+                <!-- Slide 2 -->
+                <div class="hero-slide w-full flex flex-col items-center justify-center text-center gap-8 transition-all duration-700 opacity-0 pointer-events-none z-0 absolute inset-0" data-slide="1">
+                    <div class="w-48 h-48 md:w-64 md:h-64 flex items-center justify-center ">
+                        <img src="/images/logo-cla.webp" alt="PT Cahaya Lintang Abadi" class="max-w-full max-h-full object-contain" />
+                    </div>
+                    <div class="max-w-3xl flex flex-col items-center gap-6">
+                        <h1 class="text-3xl md:text-5xl lg:text-6xl font-syne font-bold leading-tight text-white uppercase tracking-tight">
+                            "Partner in Excellence"
+                        </h1>
+                        <div class="bg-yellow-500/10 border border-yellow-500/30 px-6 py-2 rounded-full">
+                            <h5 class="text-yellow-500 font-mono text-sm uppercase tracking-widest font-bold">#KamiSiapMelayani</h5>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="flex-1 flex flex-col gap-6 w-full lg:max-w-md">
-                <div class="border border-white/20 p-6 flex justify-between items-center bg-white/5" data-aos="fade-left" data-aos-delay="400">
-                    <div>
-                        <div class="text-4xl font-bold font-syne">2021</div>
-                        <div class="text-gray-400 font-mono text-sm mt-1">Tahun Berdiri</div>
-                    </div>
-                    <Icon icon="fa-solid fa-building" class="text-3xl text-yellow-400/80" />
-                </div>
-                <div class="border border-white/20 p-6 flex justify-between items-center bg-white/5" data-aos="fade-left" data-aos-delay="500">
-                    <div>
-                        <div class="text-4xl font-bold font-syne" id="counter-layanan">9+</div>
-                        <div class="text-gray-400 font-mono text-sm mt-1">Layanan Utama</div>
-                    </div>
-                    <Icon icon="fa-solid fa-cogs" class="text-3xl text-yellow-400/80" />
-                </div>
-                <div class="border border-white/20 p-6 flex justify-between items-center bg-white/5" data-aos="fade-left" data-aos-delay="600">
-                    <div>
-                        <div class="text-4xl font-bold font-syne">Nasional</div>
-                        <div class="text-gray-400 font-mono text-sm mt-1">Skala Infrastruktur</div>
-                    </div>
-                    <Icon icon="fa-solid fa-map-location-dot" class="text-3xl text-yellow-400/80" />
-                </div>
+            <!-- Navigation Buttons -->
+            <button id="hero-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-20 bg-black/50 border border-white/20 text-white hover:bg-yellow-500 hover:text-black hover:border-yellow-500 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer" aria-label="Previous slide">
+                <Icon icon="fa-solid fa-chevron-left" class="text-lg" />
+            </button>
+            <button id="hero-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-20 bg-black/50 border border-white/20 text-white hover:bg-yellow-500 hover:text-black hover:border-yellow-500 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer" aria-label="Next slide">
+                <Icon icon="fa-solid fa-chevron-right" class="text-lg" />
+            </button>
+
+            <!-- Pagination Dots -->
+            <div class="flex justify-center gap-3 mt-12">
+                <button class="hero-dot w-3 h-3 rounded-full bg-yellow-500 transition-all duration-300 cursor-pointer" data-index="0" aria-label="Go to slide 1"></button>
+                <button class="hero-dot w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300 cursor-pointer" data-index="1" aria-label="Go to slide 2"></button>
             </div>
+        </div>
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10" data-aos="fade-up" data-aos-delay="600">
+            <span class="text-white/30 font-mono text-[10px] tracking-widest uppercase">Scroll</span>
+            <div class="w-px h-10 bg-gradient-to-b from-yellow-500/60 to-transparent animate-glow"></div>
         </div>
     </main>
+
+    <!-- Marquee ticker -->
+    <div class="w-full overflow-hidden border-y border-white/10 bg-neutral-950 py-3" aria-hidden="true">
+        <div class="marquee-track">
+            {[
+                "TOLL ROAD MAINTENANCE","TRAFFIC CLEANING","ROAD CLEANING","GARDEN MAINTENANCE",
+                "DRAINAGE SYSTEM","CONCRETE BARRIER","BRONJONG WORKS","TENAGA KERJA","TRAFFIC SIGN",
+                "TOLL ROAD MAINTENANCE","TRAFFIC CLEANING","ROAD CLEANING","GARDEN MAINTENANCE",
+                "DRAINAGE SYSTEM","CONCRETE BARRIER","BRONJONG WORKS","TENAGA KERJA","TRAFFIC SIGN"
+            ].map(item => (
+                <span class="font-mono text-[11px] text-neutral-500 tracking-widest uppercase px-8 shrink-0">
+                    <span class="text-yellow-600 mr-3">✦</span>{item}
+                </span>
+            ))}
+        </div>
+    </div>
 
     <hr class="border-t border-white/20" />
 
     <!-- Tentang Perusahaan Section -->
     <section id="tentang" class="w-full flex justify-center py-16 md:py-24 px-4 md:px-8">
         <div class="max-w-7xl w-full flex flex-col md:flex-row gap-16 items-start">
-            <img src="/images/about.webp" alt="Tentang PT Cahaya Lintang Abadi" class="w-full md:w-[523px] h-[300px] md:h-[502px] object-cover shadow-[0_25px_50px_rgba(0,0,0,0.25)]" loading="lazy" data-aos="fade-right" />
+            <img src="/galeri/personel_1.webp" alt="Tentang PT Cahaya Lintang Abadi" class="w-full md:w-[523px] h-[300px] md:h-[502px] object-cover shadow-[0_25px_50px_rgba(0,0,0,0.25)]" loading="lazy" data-aos="fade-right" />
             <div class="flex-1 flex flex-col gap-6 pt-6" data-aos="fade-left">
                 <div class="text-yellow-400 font-mono text-xs px-3 py-1 self-start">
                     #1 // TENTANG PERUSAHAAN
@@ -89,12 +231,10 @@ import GalleryCarousel from '../components/GalleryCarousel.astro';
                     Dirancang untuk Ketangguhan
                 </h2>
                 <p class="text-base text-gray-400 font-sans max-w-2xl leading-relaxed">
-                    Didirikan pada tahun 2021, PT Cahaya Lintang Abadi bergerak di
-                    bidang konstruksi dan penyediaan tenaga kerja dengan komitmen kuat
-                    untuk memberikan layanan yang unggul. Mengusung slogan
-                    <span class="text-white">"Partner In Excellence,"</span> kami
-                    berorientasi pada hasil dan efisiensi anggaran untuk menghadirkan
-                    solusi terbaik bagi setiap kebutuhan pelanggan.
+                    PT Cahaya Lintang Abadi berkomitmen untuk selalu memberikan layanan yang prima dan sempurna. 
+                    Kami telah menjalin kerja sama dengan beberapa BUMN terkemuka yang menjadi mitra bisnis strategis kami. 
+                    Pelaksanaan pekerjaan dengan manajemen yang profesional, berintegritas dan penerapan prinsip-prinsip Good Corporate Governance (GCG) akan selalu kami terapkan seiring dalam perjalanan bisnis kami. 
+                    #KamiSiapMelayani
                 </p>
                 <div class="flex flex-col lg:flex-row gap-6 mt-8">
                     <div class="flex-1 border border-white/20 p-5 flex gap-4 bg-white/5">
@@ -120,6 +260,20 @@ import GalleryCarousel from '../components/GalleryCarousel.astro';
                                 lapangan ekstrim.
                             </p>
                         </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-white/10 w-full">
+                    <div>
+                        <div class="text-3xl md:text-4xl font-bold font-syne text-yellow-500" id="counter-layanan">0+</div>
+                        <div class="text-[10px] md:text-xs text-gray-400 font-sans uppercase tracking-wider mt-1">Layanan Utama</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl md:text-4xl font-bold font-syne text-yellow-500" id="counter-pengalaman">0+</div>
+                        <div class="text-[10px] md:text-xs text-gray-400 font-sans uppercase tracking-wider mt-1">Tahun Pengalaman</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl md:text-4xl font-bold font-syne text-yellow-500" id="counter-proyek">0+</div>
+                        <div class="text-[10px] md:text-xs text-gray-400 font-sans uppercase tracking-wider mt-1">Proyek Strategis</div>
                     </div>
                 </div>
             </div>
@@ -186,6 +340,7 @@ import GalleryCarousel from '../components/GalleryCarousel.astro';
                         #3 // MATRIKS Kapabilitas
                     </div>
                     <h2 class="text-3xl md:text-5xl font-bold font-syne">Layanan Infrastruktur</h2>
+                    <span class="section-line" data-aos="fade-right" data-aos-delay="200"></span>
                 </div>
                 <div class="border-l border-yellow-700 pl-4 max-w-sm" data-aos="fade-left">
                     <p class="text-gray-400 text-xs font-light font-sans leading-relaxed">
@@ -198,30 +353,75 @@ import GalleryCarousel from '../components/GalleryCarousel.astro';
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
                 <ServiceCard title="Toll Road Maintenance"
                     description="Perbaikan struktural rutin, pemeliharaan perkerasan jalan tol, dan patching aspal pada jalur koridor utama logistik lintas provinsi."
-                    src="/images/road-maintenance-1.webp" data-aos="fade-up" data-aos-delay="0" />
+                    points={[
+                        "Patching aspal & perbaikan lubang (pothole)",
+                        "Pemeliharaan perkerasan jalan (scrapping, filling, overlay)",
+                        "Perbaikan struktural jembatan & jalan tol"
+                    ]}
+                    src="/galeri/kompresor.webp" data-aos="fade-up" data-aos-delay="0" />
                 <ServiceCard title="Traffic Cleaning Service"
                     description="Pekerjaan mekanis rehabilitasi, pemasangan, dan penyelarasan struktur sambungan siar muai pada jembatan dan jalan layang."
-                    src="/images/traffic-cleaning-service.webp" data-aos="fade-up" data-aos-delay="100" />
+                    points={[
+                        "Pembersihan & perawatan expansion joint (siar muai)",
+                        "Pembersihan guardrail & pagar pengaman jalan",
+                        "Pembersihan rambu & marka jalan secara mekanis"
+                    ]}
+                    src="/galeri/lampu.webp" data-aos="fade-up" data-aos-delay="100" />
                 <ServiceCard title="Traffic Sign Cleaning"
                     description="Pembersihan berkala rambu lalu lintas, reflektor pembatas jalan, untuk menjamin visibilitas aman bagi pengendara."
-                    src="/images/traffic-sign-cleaning.webp" data-aos="fade-up" data-aos-delay="200" />
+                    points={[
+                        "Pembersihan rambu petunjuk arah & rambu peringatan",
+                        "Perawatan reflektor pembatas jalan (delineator)",
+                        "Inspeksi visibilitas rambu malam hari"
+                    ]}
+                    src="/galeri/personel_11.webp" data-aos="fade-up" data-aos-delay="200" />
                 <ServiceCard title="Road Cleaning"
                     description="Pembersihan area perkerasan jalan tol dari sisa puing, debu makadam, vegetasi liar merayap demi kelancaran laju kendaraan."
+                    points={[
+                        "Penyapuan jalan mekanis (sweeper truck) & manual",
+                        "Pembersihan ceceran material/puing di lajur tol",
+                        "Penanganan tumpahan oli/zat kimia berbahaya"
+                    ]}
                     src="/images/street-sweeping-1.webp" data-aos="fade-up" data-aos-delay="0" />
                 <ServiceCard title="Garden Maintenance"
                     description="Penataan arsitektur lanskap hijau, perawatan tanaman media jalan, pemotongan kurap di sepanjang koridor rumija jalan tol."
+                    points={[
+                        "Pemotongan rumput rumija (ruang milik jalan)",
+                        "Perawatan tanaman hias di median jalan tol",
+                        "Pemangkasan pohon yang menghalangi pandangan/rambu"
+                    ]}
                     src="/images/garden-maintenance.webp" data-aos="fade-up" data-aos-delay="100" />
                 <ServiceCard title="Drainage System Cleaning"
                     description="Normalisasi, pembersihan sedimen lumpur, dan pembersihan sampah pada saluran air semen (u-ditch) penunjang badan jalan."
-                    src="/images/drainage-system-cleaning.webp" data-aos="fade-up" data-aos-delay="200" />
+                    points={[
+                        "Pengerukan sedimen lumpur pada saluran u-ditch",
+                        "Pembersihan sampah penyumbat gorong-gorong",
+                        "Pemeliharaan & perbaikan dinding saluran air"
+                    ]}
+                    src="/galeri/gor3.webp" data-aos="fade-up" data-aos-delay="200" />
                 <ServiceCard title="Concrete Barrier Cleaning"
                     description="Pembersihan mekanis beton pembatas jalur (movable concrete barrier) guna menjaga visibilitas marka regulasi tetap bersih."
-                    src="/images/concrete-barrier.webp" data-aos="fade-up" data-aos-delay="0" />
+                    points={[
+                        "Pencucian beton pembatas jalan (MCB) berkala",
+                        "Pengecatan ulang marka pembatas jalan",
+                        "Pembersihan reflektor pada barrier beton"
+                    ]}
+                    src="/galeri/cleaning_paravet_4.webp" data-aos="fade-up" data-aos-delay="0" />
                 <ServiceCard title="Bronjong Works"
                     description="Pemasangan anyaman kawat baja berlapis seng dengan isi batu (gabion) untuk penahan tebing rawan longsor di tepi jalur arteri."
+                    points={[
+                        "Perakitan & pemasangan kawat bronjong (gabion)",
+                        "Pengisian batu kali berkualitas tinggi",
+                        "Proteksi lereng & tebing rawan longsor"
+                    ]}
                     src="/images/gabion-works.webp" data-aos="fade-up" data-aos-delay="100" />
                 <ServiceCard title="Penyedia Tenaga Kerja"
                     description="Penyediaan dan manajemen terintegrasi tim operasional lapangan tangguh bersertifikasi khusus untuk industri konstruksi berat."
+                    points={[
+                        "Penyediaan tenaga kerja lapangan (flagman, sweeper, gardener)",
+                        "Pelatihan keselamatan kerja (K3) konstruksi jalan tol",
+                        "Manajemen & pengawasan operasional terintegrasi"
+                    ]}
                     src="/images/labor-supply.webp" data-aos="fade-up" data-aos-delay="200" />
             </div>
         </div>
@@ -234,34 +434,18 @@ import GalleryCarousel from '../components/GalleryCarousel.astro';
                 <div class="text-yellow-400 font-mono text-xs px-3 py-1 inline-block mb-3">
                     #4 // REKAM VISUAL
                 </div>
-                <h2 class="text-3xl md:text-5xl font-bold font-syne">Galeri Proyek Aktual</h2>
+                <h2 class="text-3xl md:text-5xl font-bold font-syne">Galeri Proyek </h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
-                <GalleryImage subtitle="PAVEMENT PRESERVATION" title="REHABILITASI SAMBUNGAN MUAI JALAN TOL" src="/images/road-maintenance-1.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="EXPANSION JOINT WORKS" title="REHABILITASI SAMBUNGAN MUAI" src="/images/traffic-cleaning-service.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="DIRECTIONAL SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU PETUNJUK JALAN" src="/images/traffic-road-guide-cleaning.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="REGULATORY SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU LARANGAN" src="/images/sign-cleaning-1.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="INFORMATION SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU INFORMASI JALAN" src="/images/traffic-road-information-cleaning.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="ROADWAY CLEANING" title="PEMBERSIHAN BADAN JALAN TOL" src="/images/road-cleaning.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="DRAINAGE MAINTENANCE" title="PEMBERSIHAN SALURAN DRAINASE" src="/images/drainage-system-cleaning.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="WARNING SIGN MAINTENANCE" title="PEMBERSIHAN RAMBU PETUNJUK TIKUNGAN" src="/images/sign-cleaning-2.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="VEGETATION MANAGEMENT" title="PENGENDALIAN GULMA" src="/images/grass-cutting-1.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="ROAD MARKER MAINTENANCE" title="PEMBERSIHAN PATOK KILOMETER JALAN TOL" src="/images/path-cleaning.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="HORTICULTURAL SERVICES" title="PEMELIHARAAN TANAMAN HIAS" src="/images/garden-maintenance-4.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="LANDSCAPE MAINTENANCE" title="PERAWATAN TANAMAN HIAS" src="/images/garden-maintenance-2.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="DRAINAGE MAINTENANCE" title="PEMBERSIHAN SALURAN DRAINASE" src="/images/drainage-maintenance-1.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="CONCRETE BARRIER MAINTENANCE" title="PEMBERSIHAN CONCRETE BARRIER" src="/images/concrete-barrier.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="DRAINAGE REHABILITATION" title="NORMALISASI SALURAN DRAINASE" src="/images/drainage-maintenance-2.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="HIGH-PRESSURE CLEANING" title="PENCUCIAN CONCRETE BARRIER" src="/images/street-sweeping-1.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="SLOPE PROTECTION WORKS" title="PEKERJAAN BRONJONG PENAHAN TANAH" src="/images/gabion-works.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="INFRASTRUCTURE CLEANING" title="PEMBERSIHAN SAMPAH" src="/images/trash-cleaning-1.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="WORKFORCE DEPLOYMENT" title="MOBILISASI TENAGA KERJA" src="/images/labor-supply.webp" data-aos="zoom-in" />
-                <GalleryImage subtitle="OPERATIONAL READINESS" title="KESIAPAN PERSONEL OPERASIONAL" src="/images/toolbox-meeting.webp" data-aos="zoom-in" />
-
-                <!-- Carousel untuk Safety Briefing -->
-                <div data-aos="zoom-in">
-                    <GalleryCarousel />
-                </div>
+                {galleryCategories.map((category) => (
+                    <div data-aos="zoom-in">
+                        <GalleryCarousel
+                            title={category.title}
+                            subtitle={category.subtitle}
+                            images={category.images}
+                        />
+                    </div>
+                ))}
             </div>
         </div>
     </section>
@@ -289,88 +473,64 @@ import GalleryCarousel from '../components/GalleryCarousel.astro';
 
     <!-- Pengalaman Proyek Historis Section -->
     <section id="pengalaman" class="w-full flex justify-center py-16 md:py-32 px-4 md:px-8">
-        <div class="max-w-7xl w-full flex flex-col gap-10 md:gap-24">
-            <div class="w-full" data-aos="fade-right">
-                <div class="text-yellow-400 font-mono text-xs px-3 py-1 inline-block mb-3">
-                    #5 // REAL ASSET TRACK
-                </div>
-                <h2 class="text-3xl md:text-5xl font-bold font-syne">
+    <div class="max-w-7xl w-full flex flex-col gap-10 md:gap-16">
+        <div class="w-full" data-aos="fade-right">
+            <div class="text-yellow-400 font-mono text-xs px-3 py-1 inline-block mb-3">
+                #5 // REAL ASSET TRACK
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold font-syne">Pengalaman Proyek</h2>
+        </div>
 
-                </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Item 1 - 2022 -->
+            <div class="border border-white/20 bg-neutral-900 p-6 flex flex-col gap-3" data-aos="fade-up" data-aos-delay="0">
+                <span class="text-yellow-500 font-bold font-syne text-3xl">2022</span>
+                <h3 class="text-white font-bold text-sm font-sans leading-relaxed">
+                    PERAWATAN LINGKUNGAN DAN SARANA PERLENGKAPAN JALAN TOL
+                </h3>
+                <p class="text-gray-400 font-light text-xs font-sans leading-relaxed">
+                    Ruas Jalan Tol Manado - Bitung Periode Januari 2022 sampai 30 Desember 2022
+                </p>
             </div>
 
-            <div class="w-full relative">
-                <!-- Horizontal Line -->
-                <div class="absolute top-0 left-0 w-full h-[2px] bg-white hidden md:block"></div>
+            <!-- Item 2 - 2023 -->
+            <div class="border border-white/20 bg-neutral-900 p-6 flex flex-col gap-3" data-aos="fade-up" data-aos-delay="100">
+                <span class="text-yellow-500 font-bold font-syne text-3xl">2023</span>
+                <h3 class="text-white font-bold text-sm font-sans leading-relaxed">
+                    PERAWATAN LINGKUNGAN DAN SARANA PERLENGKAPAN JALAN TOL
+                </h3>
+                <p class="text-gray-400 font-light text-xs font-sans leading-relaxed">
+                    Ruas Jalan Tol Manado - Bitung Periode Januari 2023 sampai 31 Maret 2023
+                </p>
+            </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <!-- Item 1 -->
-                    <div class="relative pt-0 md:pt-8 flex flex-col" data-aos="fade-up" data-aos-delay="0">
-                        <div class="text-white font-bold font-syne text-3xl mb-4 md:mb-8 flex items-center">
-                            2022
-                        </div>
-                        <div class="absolute left-0 top-0 w-3 h-3 bg-yellow-500 hidden md:block transform -translate-y-1/2"></div>
-                        <div class="border border-white/20 bg-neutral-900 p-4 flex-1">
-                            <h3 class="text-white font-bold text-xs mb-2 font-sans">
-                                PERAWATAN LINGKUNGAN DAN SARANA PERLENGKAPAN JALAN TOL
-                            </h3>
-                            <p class="text-gray-400 font-light text-[11px] font-sans">
-                                Ruas Jalan Tol Manado - Bitung Periode Januari 2022 sampai 30 Desember 2022
-                            </p>
-                        </div>
-                    </div>
+            <!-- Item 3 - 2024-2025 -->
+            <div class="border border-white/20 bg-neutral-900 p-6 flex flex-col gap-3" data-aos="fade-up" data-aos-delay="200">
+                <span class="text-yellow-500 font-bold font-syne text-3xl">2024–2025</span>
+                <h3 class="text-white font-bold text-sm font-sans leading-relaxed">
+                    PERAWATAN DAN KEBERSIHAN JALAN TOL
+                </h3>
+                <p class="text-gray-400 font-light text-xs font-sans leading-relaxed">
+                    Ruas Jalan Tol Cibitung - Cilincing Periode September 2024 sampai September 2025
+                </p>
+            </div>
 
-                    <!-- Item 2 -->
-                    <div class="relative pt-0 md:pt-8 flex flex-col" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-white font-bold font-syne text-3xl mb-4 md:mb-8 flex items-center">
-                            2023
-                        </div>
-                        <div class="absolute left-0 top-0 w-3 h-3 bg-yellow-700 hidden md:block transform -translate-y-1/2"></div>
-                        <div class="border border-white/20 bg-neutral-900 p-4 flex-1">
-                            <h3 class="text-white font-bold text-xs mb-2 font-sans">
-                                PERAWATAN LINGKUNGAN DAN SARANA PERLENGKAPAN JALAN TOL
-                            </h3>
-                            <p class="text-gray-400 font-light text-[11px] font-sans">
-                                Ruas Jalan Tol Manado - Bitung Periode Januari 2023 sampai 31 Maret 2023
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="relative pt-0 md:pt-8 flex flex-col" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-white font-bold font-syne text-2xl mb-4 md:mb-8 flex items-center md:h-[36px]">
-                            2024–2025
-                        </div>
-                        <div class="absolute left-0 top-0 w-3 h-3 bg-yellow-500 hidden md:block transform -translate-y-1/2"></div>
-                        <div class="border border-white/20 bg-neutral-900 p-4 flex-1">
-                            <h3 class="text-white font-bold text-xs mb-2 font-sans">
-                                PERAWATAN DAN KEBERSIHAN JALAN TOL
-                            </h3>
-                            <p class="text-gray-400 font-light text-[11px] font-sans">
-                                Ruas Jalan Tol Cibitung - Cilincing Periode September 2024 sampai September 2025
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Item 4 -->
-                    <div class="relative pt-0 md:pt-8 flex flex-col" data-aos="fade-up" data-aos-delay="300">
-                        <div class="text-yellow-500 font-bold font-syne text-2xl mb-4 md:mb-8 flex items-center md:h-[36px]">
-                            2025–2028
-                        </div>
-                        <div class="absolute left-0 top-0 w-3 h-3 bg-yellow-700 hidden md:block transform -translate-y-1/2"></div>
-                        <div class="border border-yellow-500/40 bg-neutral-900 p-4 flex-1">
-                            <h3 class="text-yellow-500 font-bold text-xs mb-2 font-sans">
-                                PEKERJAAN PENGADAAN PERSONIL AKTIVITAS JALAN TOL
-                            </h3>
-                            <p class="text-gray-400 font-light text-[11px] font-sans">
-                                Ruas Jalan Tol Cibitung - Cilincing Periode Juni 2025 - Mei 2028
-                            </p>
-                        </div>
-                    </div>
+            <!-- Item 4 - 2025-2028 -->
+            <div class="border border-yellow-500/40 bg-neutral-900 p-6 flex flex-col gap-3 relative" data-aos="fade-up" data-aos-delay="300">
+                <div class="absolute top-0 right-0 bg-yellow-500 text-black font-mono text-[10px] px-2 py-1 uppercase tracking-wider">
+                    Aktif
                 </div>
+                <span class="text-yellow-500 font-bold font-syne text-3xl">2025–2028</span>
+                <h3 class="text-yellow-500 font-bold text-sm font-sans leading-relaxed">
+                    PEKERJAAN PENGADAAN PERSONIL AKTIVITAS JALAN TOL
+                </h3>
+                <p class="text-gray-400 font-light text-xs font-sans leading-relaxed">
+                    Ruas Jalan Tol Cibitung - Cilincing Periode Juni 2025 - Mei 2028
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Hubungi Kami Section -->
     <section id="kontak" class="w-full bg-black flex justify-center py-16 md:py-32 px-4 md:px-8">
@@ -529,48 +689,192 @@ import GalleryCarousel from '../components/GalleryCarousel.astro';
         </div>
     </footer>
 
+    <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Kembali ke atas" title="Kembali ke atas">
+        ↑
+    </button>
+
     <script>
-        // Counter Animation Script
-const counter = document.getElementById('counter-layanan');
-if (counter) {
-    const target = 9;
-    const duration = 1500; // 1.5 seconds for smooth count-up
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Reset counter to 0 before starting
-                counter.textContent = '0';
-                
-                const startTime = performance.now();
-                
-                const animate = (currentTime: number) => {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    
-                    // Easing function for smooth animation (ease-out quadratic)
-                    const easeProgress = 1 - Math.pow(1 - progress, 2);
-                    const currentValue = Math.round(easeProgress * target);
-                    
-                    // Update counter with current value
-                    counter.textContent = `${currentValue}+`;
-                    
-                    // Continue animation if not complete
-                    if (progress < 1) {
-                        requestAnimationFrame(animate);
-                    } else {
-                        // Ensure final value is exactly 9
-                        counter.textContent = `${target}+`;
-                    }
-                };
-                
-                requestAnimationFrame(animate);
-                observer.unobserve(counter);
+        // ── Page-load fade-in ─────────────────────────────────
+        document.documentElement.style.opacity = '0';
+        document.documentElement.style.transition = 'opacity 0.45s ease';
+        window.addEventListener('load', () => { document.documentElement.style.opacity = '1'; });
+
+        // ── Typed text effect on hero ─────────────────────────
+        const typedEl = document.getElementById('typed-word');
+        const cursor  = document.getElementById('typed-cursor');
+        const words   = ['Maintenance Toll Road',];
+        let wi = 0, ci = 0, deleting = false;
+        const SPEED_TYPE = 80, SPEED_DEL = 45, PAUSE = 2200;
+        function typeLoop() {
+            if (!typedEl) return;
+            const word = words[wi];
+            if (!deleting) {
+                typedEl.textContent = word.slice(0, ++ci);
+                if (ci === word.length) { deleting = true; setTimeout(typeLoop, PAUSE); return; }
+            } else {
+                typedEl.textContent = word.slice(0, --ci);
+                if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+            }
+            setTimeout(typeLoop, deleting ? SPEED_DEL : SPEED_TYPE);
+        }
+        // Start after AOS intro delay
+        setTimeout(typeLoop, 1800);
+
+        // ── Hero Slider ───────────────────────────────────────
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.hero-dot');
+        const prevBtn = document.getElementById('hero-prev');
+        const nextBtn = document.getElementById('hero-next');
+        let currentSlide = 0;
+        let slideInterval: number;
+
+        function showSlide(index: number) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('absolute', 'inset-0', 'opacity-0', 'pointer-events-none', 'z-0');
+                    slide.classList.add('relative', 'opacity-100', 'z-10');
+                } else {
+                    slide.classList.remove('relative', 'opacity-100', 'z-10');
+                    slide.classList.add('absolute', 'inset-0', 'opacity-0', 'pointer-events-none', 'z-0');
+                }
+            });
+
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-white/30');
+                    dot.classList.add('bg-yellow-500');
+                } else {
+                    dot.classList.remove('bg-yellow-500');
+                    dot.classList.add('bg-white/30');
+                }
+            });
+
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        function prevSlide() {
+            const prev = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prev);
+        }
+
+        function startAutoplay() {
+            stopAutoplay();
+            slideInterval = setInterval(nextSlide, 6000) as any;
+        }
+
+        function stopAutoplay() {
+            if (slideInterval) clearInterval(slideInterval);
+        }
+
+        prevBtn?.addEventListener('click', () => {
+            prevSlide();
+            startAutoplay();
+        });
+
+        nextBtn?.addEventListener('click', () => {
+            nextSlide();
+            startAutoplay();
+        });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                showSlide(i);
+                startAutoplay();
+            });
+        });
+
+        if (slides.length > 0) {
+            startAutoplay();
+        }
+
+        // ── Counter animation (scroll-triggered) ─────────────
+        function animateCounter(el: HTMLElement, target: number, duration: number, suffix = '+') {
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (!e.isIntersecting) return;
+                    const start = performance.now();
+                    const tick = (now: number) => {
+                        const p = Math.min((now - start) / duration, 1);
+                        const ease = 1 - Math.pow(1 - p, 3);
+                        el.textContent = Math.round(ease * target) + suffix;
+                        if (p < 1) requestAnimationFrame(tick);
+                    };
+                    requestAnimationFrame(tick);
+                    obs.unobserve(el);
+                });
+            }, { threshold: 0.5 });
+            obs.observe(el);
+        }
+        const counterLayanan = document.getElementById('counter-layanan');
+        if (counterLayanan) animateCounter(counterLayanan as HTMLElement, 9, 1400, '+');
+
+        const counterPengalaman = document.getElementById('counter-pengalaman');
+        if (counterPengalaman) animateCounter(counterPengalaman as HTMLElement, 5, 1400, '+');
+
+        const counterProyek = document.getElementById('counter-proyek');
+        if (counterProyek) animateCounter(counterProyek as HTMLElement, 4, 1400, '+');
+
+        // ── Mobile menu slide-down animation ─────────────────
+        const mobileMenu = document.getElementById('mobile-menu');
+        const origToggle = mobileMenu?.classList.toggle.bind(mobileMenu.classList);
+        const menuObserver = new MutationObserver(() => {
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('mobile-menu-open');
             }
         });
-    }, { threshold: 0.5 }); // Trigger when 50% of element is visible
-    
-    observer.observe(counter);
-}
+        if (mobileMenu) menuObserver.observe(mobileMenu, { attributes: true, attributeFilter: ['class'] });
+
+        // ── Parallax subtle on hero orbs ─────────────────────
+        const orbs = document.querySelectorAll<HTMLElement>('.hero-orb');
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            orbs.forEach((orb, i) => {
+                orb.style.transform = `translateY(${y * (i % 2 === 0 ? 0.08 : -0.06)}px)`;
+            });
+        }, { passive: true });
+        // ── Scroll-to-top button ──────────────────────────────────────────────
+        const scrollBtn = document.getElementById('scroll-top-btn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) scrollBtn?.classList.add('visible');
+            else scrollBtn?.classList.remove('visible');
+        }, { passive: true });
+        scrollBtn?.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ── Sound toggle on hero click ────────────────────────
+        const heroVideo = document.getElementById('hero-video') as HTMLVideoElement;
+        const soundIcon = document.getElementById('sound-icon');
+        function toggleSound() {
+            if (!heroVideo) return;
+            heroVideo.muted = !heroVideo.muted;
+            if (soundIcon) soundIcon.textContent = heroVideo.muted ? '🔇' : '🔊';
+        }
+        // Clicking anywhere on hero section to unmute
+        document.getElementById('beranda')?.addEventListener('click', (e) => {
+            const target = e.target as HTMLElement;
+            if (target.closest('#sound-toggle')) return;
+            if (heroVideo && heroVideo.muted) {
+                heroVideo.muted = false;
+                if (soundIcon) soundIcon.textContent = '🔊';
+            }
+        });
+        // Mute again when user scrolls away from hero
+        const beranda = document.getElementById('beranda');
+        const muteObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (!e.isIntersecting && heroVideo && !heroVideo.muted) {
+                    heroVideo.muted = true;
+                    if (soundIcon) soundIcon.textContent = '🔇';
+                }
+            });
+        }, { threshold: 0.1 });
+        if (beranda) muteObserver.observe(beranda);
+        (window as any).toggleSound = toggleSound;
     </script>
 </Layout>

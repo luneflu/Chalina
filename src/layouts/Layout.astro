@@ -55,10 +55,12 @@ const { title = "PT Cahaya Lintang Abadi" } = Astro.props;
 			// Initialize AOS when the page loads
 			document.addEventListener('DOMContentLoaded', () => {
 				AOS.init({
-					duration: 800,
+					duration: 1000,
 					once: true,
-					offset: 100,
-					easing: 'ease-out-cubic'
+					offset: 80,
+					easing: 'ease-out-cubic',
+					anchorPlacement: 'top-bottom',
+					delay: 50
 				});
 			});
 		</script>

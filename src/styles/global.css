@@ -6,24 +6,401 @@
   --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
+/* ─── Base ─────────────────────────────────────────── */
 body {
     background-color: #0a0a0a;
     color: #fafafa;
-    /* font-sans is default applied by Tailwind to body usually, or we can just apply it explicitly */
     font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* ─── Keyframes ─────────────────────────────────────── */
+
+/* Gentle vertical float */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-7px); }
+}
+
+/* Soft yellow glow pulse */
+@keyframes glow {
+    0%, 100% { opacity: 0.6; }
+    50%       { opacity: 1; }
+}
+
+/* Underline draw from left */
+@keyframes draw-line {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+
+/* Fade + slide up (used for staggered list items) */
+@keyframes fade-slide-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Subtle background shimmer on cards */
+@keyframes card-shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Slow spin for decorative rings */
+@keyframes spin-slow {
+    to { transform: rotate(360deg); }
+}
+
+/* Marquee scroll */
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* ─── Utility classes ───────────────────────────────── */
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+.animate-glow {
+    animation: glow 2.5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+}
+
+.animate-marquee {
+    animation: marquee 28s linear infinite;
+}
+
+.draw-line {
+    transform-origin: left;
+    animation: draw-line 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* ─── Gallery ───────────────────────────────────────── */
 .gallery-overlay {
     background: linear-gradient(to top,
-            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.85) 0%,
             rgba(0, 0, 0, 0) 100%);
 }
 .gallery-card {
     cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .gallery-card:hover {
     transform: scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.55);
+}
+
+/* ─── Service Card ──────────────────────────────────── */
+.service-card {
+    position: relative;
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+    overflow: hidden;
+}
+
+/* Thin yellow line that draws in from left on hover */
+.service-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #eab308 0%, #fde047 60%, transparent 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    border-color: rgba(234, 179, 8, 0.35) !important;
+}
+
+.service-card:hover::after {
+    transform: scaleX(1);
+}
+
+/* Image zoom on card hover */
+.service-card .service-img-wrap {
+    overflow: hidden;
+}
+.service-card .service-img-wrap img {
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.45s ease;
+}
+.service-card:hover .service-img-wrap img {
+    transform: scale(1.08);
+    filter: brightness(1.08);
+}
+
+/* ─── Bullet points: always visible on mobile, stagger on desktop hover ── */
+.service-card ul li {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+@media (hover: hover) {
+    .service-card ul li {
+        opacity: 0;
+        transform: translateX(-6px);
+    }
+    .service-card:hover ul li { opacity: 1; transform: translateX(0); }
+    .service-card:hover ul li:nth-child(1) { transition-delay: 0.04s; }
+    .service-card:hover ul li:nth-child(2) { transition-delay: 0.12s; }
+    .service-card:hover ul li:nth-child(3) { transition-delay: 0.20s; }
+}
+
+/* Arrow slide on hover */
+.service-card .arrow-link {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.service-card:hover .arrow-link {
+    transform: translateX(6px);
+    color: #fde047;
+}
+
+/* ─── Section heading accent line ───────────────────── */
+.section-line {
+    display: block;
+    height: 2px;
+    width: 3rem;
+    background: linear-gradient(90deg, #eab308, #fde047);
+    margin-top: 1rem;
+    transform-origin: left;
+    animation: draw-line 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* ─── Smooth focus ring for form inputs ─────────────── */
+input:focus, textarea:focus {
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.15);
+}
+
+/* ─── Advantage / stat card hover ───────────────────── */
+[data-advantage-card] {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+[data-advantage-card]:hover {
+    background-color: rgba(234, 179, 8, 0.04);
+    border-color: rgba(234, 179, 8, 0.25) !important;
+}
+
+/* ─── Typed cursor blink ─────────────────────────────── */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+.typed-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background: #eab308;
+    margin-left: 4px;
+    vertical-align: middle;
+    animation: blink 0.9s step-end infinite;
+}
+
+/* ─── Marquee ticker ─────────────────────────────────── */
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ─── Mobile menu slide-down ─────────────────────────── */
+@keyframes slide-down {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.mobile-menu-open {
+    animation: slide-down 0.25s ease forwards;
+}
+
+/* ─── Stat card pulse on scroll-in ──────────────────── */
+@keyframes stat-pop {
+    0%   { transform: scale(0.92); opacity: 0; }
+    60%  { transform: scale(1.04); opacity: 1; }
+    100% { transform: scale(1);    opacity: 1; }
+}
+.stat-pop {
+    animation: stat-pop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Gradient animated border on CTA button ────────── */
+@keyframes border-spin {
+    to { --angle: 360deg; }
+}
+.btn-glow {
+    position: relative;
+    isolation: isolate;
+}
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(90deg, #eab308, #fde047, #ca8a04, #eab308);
+    background-size: 300% 100%;
+    animation: card-shimmer 3s linear infinite;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.btn-glow:hover::before { opacity: 1; }
+
+/* ─── Section number badge float ────────────────────── */
+.section-badge {
+    display: inline-block;
+    animation: float 5s ease-in-out infinite;
+}
+/* ─── Nav brand shimmer on hover ──────────────────────── */
+@keyframes brand-shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+.brand-text {
+    background: linear-gradient(90deg, #fff 40%, #eab308 50%, #fff 60%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0s;
+}
+.brand-text:hover {
+    animation: brand-shimmer 1.2s linear forwards;
+}
+
+/* ─── Nav link animated underline ─────────────────────── */
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #eab308;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-link:hover::after { width: 100%; }
+
+/* ─── Advantage card icon pulse ───────────────────────── */
+@keyframes icon-pulse {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.12); }
+}
+[data-advantage-card]:hover .adv-icon {
+    animation: icon-pulse 0.6s ease-in-out;
+}
+
+/* ─── Stat number glow on hover ───────────────────────── */
+.stat-num {
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+.stat-num:hover {
+    text-shadow: 0 0 20px rgba(234, 179, 8, 0.5);
+    color: #fde047;
+}
+
+/* ─── Section heading reveal line ─────────────────────── */
+.section-line {
+    display: block;
+    height: 2px;
+    background: linear-gradient(90deg, #eab308, #ca8a04);
+    transform-origin: left;
+    animation: draw-line 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+    margin-top: 6px;
+}
+
+/* ─── Image lazy-load fade-in ─────────────────────────── */
+@keyframes img-reveal {
+    from { opacity: 0; transform: scale(1.04); }
+    to   { opacity: 1; transform: scale(1); }
+}
+.service-img-wrap img {
+    animation: img-reveal 0.6s ease both;
+}
+
+/* ─── Scroll-to-top button pulse ring ─────────────────── */
+@keyframes ring-expand {
+    0%   { transform: scale(1);   opacity: 0.6; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+.scroll-top-btn {
+    position: fixed;
+    bottom: 28px;
+    left: 24px;
+    z-index: 99;
+    width: 44px;
+    height: 44px;
+    background: #eab308;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    border: none;
+}
+.scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.scroll-top-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #eab308;
+    animation: ring-expand 1.8s ease-out infinite;
+    z-index: -1;
+}
+
+/* ─── Contact form input animated label ───────────────── */
+input, textarea {
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+input:focus, textarea:focus {
+    background-color: rgba(234, 179, 8, 0.03);
+    border-color: rgba(234, 179, 8, 0.5) !important;
+    box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.08);
+    outline: none;
+}
+
+/* ─── Gallery card shimmer overlay ────────────────────── */
+@keyframes gallery-shimmer {
+    0%   { transform: translateX(-100%) skewX(-15deg); }
+    100% { transform: translateX(200%) skewX(-15deg); }
+}
+.gallery-card {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+    transform: translateX(-100%) skewX(-15deg);
+    transition: none;
+}
+.gallery-card:hover::after {
+    animation: gallery-shimmer 0.7s ease forwards;
+}
+.gallery-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.55);
 }
