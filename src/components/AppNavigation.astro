@@ -30,7 +30,7 @@ import Icon from './Icon.astro';
         </div>
 
         <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none p-2 relative w-8 h-8 flex items-center justify-center">
+        <button id="mobile-menu-btn" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden text-white focus:outline-none p-2 relative w-8 h-8 flex items-center justify-center">
             <span id="icon-bars"><Icon icon="fa-solid fa-bars" class="text-2xl" /></span>
             <span id="icon-xmark" class="hidden"><Icon icon="fa-solid fa-xmark" class="text-2xl" /></span>
         </button>
@@ -75,6 +75,9 @@ import Icon from './Icon.astro';
         if (!menu) return;
         menu.classList.toggle('hidden');
         menu.classList.toggle('flex');
+        const isOpen = !menu.classList.contains('hidden');
+        btn.setAttribute('aria-expanded', String(isOpen));
+        btn.setAttribute('aria-label', isOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi');
         if (menu.classList.contains('hidden')) {
             iconXmark?.classList.add('hidden');
             iconBars?.classList.remove('hidden');
