@@ -123,10 +123,12 @@ const galleryCategories = [
                 autoplay 
                 loop 
                 muted
-                playsinline 
-                 class="w-full h-full object-cover opacity-90"
+                playsinline
+                preload="none"
+                poster="/images/video-poster.jpg"
+                class="w-full h-full object-cover opacity-90"
             >
-                <source src="/video/calina_home.mp4" type="video/mp4" />
+                <source data-src="/video/calina_home.mp4" type="video/mp4" />
             </video>
             <!-- Sound toggle button -->
             <button id="sound-toggle" onclick="toggleSound()" class="absolute bottom-20 right-6 z-20 bg-black/50 border border-white/30 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/70 transition-all" title="Toggle suara">
@@ -702,6 +704,31 @@ const galleryCategories = [
         document.documentElement.style.opacity = '0';
         document.documentElement.style.transition = 'opacity 0.45s ease';
         window.addEventListener('load', () => { document.documentElement.style.opacity = '1'; });
+
+        // ── Lazy load hero video after page is interactive ────
+        (function lazyLoadVideo() {
+            const video = document.getElementById('hero-video') as HTMLVideoElement | null;
+            if (!video) return;
+            const source = video.querySelector('source[data-src]') as HTMLSourceElement | null;
+            if (!source) return;
+            function loadVideo() {
+                if (source && !source.src) {
+                    source.src = source.getAttribute('data-src') || '';
+                    video!.load();
+                    video!.play().catch(() => {});
+                }
+            }
+            // Load after page fully loaded, or on first user interaction
+            if (document.readyState === 'complete') {
+                setTimeout(loadVideo, 500);
+            } else {
+                window.addEventListener('load', () => setTimeout(loadVideo, 500), { once: true });
+            }
+            // Also load on first scroll/touch if not yet loaded
+            const earlyLoad = () => { loadVideo(); window.removeEventListener('scroll', earlyLoad); window.removeEventListener('touchstart', earlyLoad); };
+            window.addEventListener('scroll', earlyLoad, { passive: true });
+            window.addEventListener('touchstart', earlyLoad, { passive: true });
+        })();
 
         // ── Typed text effect on hero ─────────────────────────
         const typedEl = document.getElementById('typed-word');
