@@ -18,7 +18,7 @@ const { title, description, points = [], link = "#", src, ...rest } = Astro.prop
                 {description}
             </p>
             {points.length > 0 && (
-                <ul class="text-neutral-500 text-xs font-sans list-none space-y-2 mb-4">
+                <ul class="text-neutral-400 text-xs font-sans list-none space-y-2 mb-4">
                     {points.map((point) => (
                         <li class="flex items-start gap-2">
                             <span class="text-yellow-600 mt-0.5 shrink-0">›</span>
@@ -34,7 +34,7 @@ const { title, description, points = [], link = "#", src, ...rest } = Astro.prop
     </div>
     <div class="service-img-wrap h-[180px] w-full">
         {src && (
-            <img src={src} alt={title} class="w-full h-full object-cover" loading="lazy" />
+            <img src={src} alt={title} class="w-full h-full object-cover" loading="lazy" width="390" height="180" />
         )}
     </div>
 </div>

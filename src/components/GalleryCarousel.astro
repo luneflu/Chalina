@@ -14,7 +14,7 @@ const { images, title, subtitle = "", ...rest } = Astro.props;
         <div class="carousel-track flex transition-transform duration-500 ease-in-out h-full">
             {images.map((src, index) => (
                 <div class="carousel-slide min-w-full relative h-full cursor-pointer lightbox-trigger" data-lightbox-src={src} data-lightbox-title={title} data-lightbox-subtitle={subtitle}>
-                    <img src={src} alt={`${title} - Slide ${index + 1}`} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                    <img src={src} alt={`${title} - Slide ${index + 1}`} class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="390" height="347" />
                 </div>
             ))}
         </div>
