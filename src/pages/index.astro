@@ -222,7 +222,7 @@ const galleryCategories = [
     <!-- Tentang Perusahaan Section -->
     <section id="tentang" class="w-full flex justify-center py-16 md:py-24 px-4 md:px-8">
         <div class="max-w-7xl w-full flex flex-col md:flex-row gap-16 items-start">
-            <img src="/galeri/personel_1.webp" alt="Tentang PT Cahaya Lintang Abadi" class="w-full md:w-[523px] h-[300px] md:h-[502px] object-cover shadow-[0_25px_50px_rgba(0,0,0,0.25)]" loading="lazy" data-aos="fade-right" />
+            <img src="/galeri/personel_12.webp" alt="Tentang PT Cahaya Lintang Abadi" class="w-full md:w-[523px] h-[300px] md:h-[502px] object-cover shadow-[0_25px_50px_rgba(0,0,0,0.25)]" loading="lazy" data-aos="fade-right" />
             <div class="flex-1 flex flex-col gap-6 pt-6" data-aos="fade-left">
                 <div class="text-yellow-400 font-mono text-xs px-3 py-1 self-start">
                     #1 // TENTANG PERUSAHAAN
@@ -358,7 +358,7 @@ const galleryCategories = [
                         "Pemeliharaan perkerasan jalan (scrapping, filling, overlay)",
                         "Perbaikan struktural jembatan & jalan tol"
                     ]}
-                    src="/galeri/kompresor.webp" data-aos="fade-up" data-aos-delay="0" />
+                    src="/galeri/peralatan_5.webp" data-aos="fade-up" data-aos-delay="0" />
                 <ServiceCard title="Traffic Cleaning Service"
                     description="Pekerjaan mekanis rehabilitasi, pemasangan, dan penyelarasan struktur sambungan siar muai pada jembatan dan jalan layang."
                     points={[
@@ -398,7 +398,7 @@ const galleryCategories = [
                         "Pembersihan sampah penyumbat gorong-gorong",
                         "Pemeliharaan & perbaikan dinding saluran air"
                     ]}
-                    src="/galeri/gor3.webp" data-aos="fade-up" data-aos-delay="200" />
+                    src="/galeri/gor2.webp" data-aos="fade-up" data-aos-delay="200" />
                 <ServiceCard title="Concrete Barrier Cleaning"
                     description="Pembersihan mekanis beton pembatas jalur (movable concrete barrier) guna menjaga visibilitas marka regulasi tetap bersih."
                     points={[
@@ -466,7 +466,7 @@ const galleryCategories = [
                 <AdvantageCard title="Berpengalaman" description="Rekam jejak terbukti menjaga ketahanan aset infrastruktur vital negara." icon="fa-solid fa-medal" data-aos="fade-up" data-aos-delay="200" />
                 <AdvantageCard title="SDM Berkualitas" description="Penyaringan dan pembekalan sertifikasi teknis ketat bagi seluruh personal kerja." icon="fa-solid fa-id-card" data-aos="fade-up" data-aos-delay="300" />
                 <AdvantageCard title="Customer Oriented" description="Fleksibilitas tinggi menyelaraskan kualitas output kerja dengan anggaran klien." icon="fa-solid fa-handshake" data-aos="fade-up" data-aos-delay="400" />
-                <AdvantageCard title="Operational Excellence" description="Prinsip kerja tanpa cacat (*zero delay logistic*) pada jalur transit padat." icon="fa-solid fa-bolt" data-aos="fade-up" data-aos-delay="500" />
+                <AdvantageCard title="Operational Excellence" description="Prinsip kerja tanpa cacat (zero delay logistic) pada jalur transit padat." icon="fa-solid fa-bolt" data-aos="fade-up" data-aos-delay="500" />
             </div>
         </div>
     </section>
@@ -544,16 +544,19 @@ const galleryCategories = [
                 </div>
 
                 <!-- Form -->
-                <form class="flex flex-col gap-4 w-full" onsubmit="event.preventDefault()">
+                <form id="contact-form" class="flex flex-col gap-4 w-full">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="text" placeholder="NAMA LENGKAP" class="bg-neutral-900 border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-yellow-500 w-full" />
-                        <input type="email" placeholder="EMAIL" class="bg-neutral-900 border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-yellow-500 w-full" />
+                        <input type="text" name="name" placeholder="NAMA LENGKAP" required class="bg-neutral-900 border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-yellow-500 w-full" />
+                        <input type="email" name="email" placeholder="EMAIL" required class="bg-neutral-900 border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-yellow-500 w-full" />
                     </div>
-                    <input type="text" placeholder="SUBJEK" class="bg-neutral-900 border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-yellow-500 w-full" />
-                    <textarea rows="4" placeholder="PESAN ATAU SPESIFIKASI PROYEK" class="bg-neutral-900 border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-yellow-500 w-full resize-none h-[114px]"></textarea>
-                    <button type="submit" class="bg-yellow-500 text-white font-mono text-[12px] font-bold h-12 w-[150px] flex items-center justify-center hover:bg-yellow-600 transition-colors cursor-pointer uppercase">
-                        KIRIM PESAN
-                    </button>
+                    <input type="text" name="subject" placeholder="SUBJEK" required class="bg-neutral-900 border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-yellow-500 w-full" />
+                    <textarea rows="4" name="message" placeholder="PESAN ATAU SPESIFIKASI PROYEK" required class="bg-neutral-900 border border-zinc-700 text-white font-mono text-[12px] placeholder-white/50 p-4 focus:outline-none focus:border-yellow-500 w-full resize-none h-[114px]"></textarea>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                        <button type="submit" class="bg-yellow-500 text-white font-mono text-[12px] font-bold h-12 w-[150px] flex items-center justify-center hover:bg-yellow-600 transition-colors cursor-pointer uppercase">
+                            KIRIM PESAN
+                        </button>
+                        <div id="form-status" class="font-mono text-[12px] hidden"></div>
+                    </div>
                 </form>
             </div>
 
@@ -817,7 +820,7 @@ const galleryCategories = [
         if (counterPengalaman) animateCounter(counterPengalaman as HTMLElement, 5, 1400, '+');
 
         const counterProyek = document.getElementById('counter-proyek');
-        if (counterProyek) animateCounter(counterProyek as HTMLElement, 4, 1400, '+');
+        if (counterProyek) animateCounter(counterProyek as HTMLElement, 20  , 1400, '+');
 
         // ── Mobile menu slide-down animation ─────────────────
         const mobileMenu = document.getElementById('mobile-menu');
@@ -876,5 +879,55 @@ const galleryCategories = [
         }, { threshold: 0.1 });
         if (beranda) muteObserver.observe(beranda);
         (window as any).toggleSound = toggleSound;
+
+        // ── Contact Form Submission ──────────────────────────
+        const contactForm = document.getElementById('contact-form') as HTMLFormElement;
+        const formStatus = document.getElementById('form-status');
+        
+        contactForm?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!formStatus) return;
+
+            formStatus.classList.remove('hidden', 'text-red-500', 'text-green-500');
+            formStatus.classList.add('text-yellow-500');
+            formStatus.textContent = 'Mengirim pesan...';
+
+            const formData = new FormData(contactForm);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                subject: formData.get('subject'),
+                message: formData.get('message'),
+                _subject: `Kontak Baru dari Website: ${formData.get('subject')}`,
+                _template: 'table'
+            };
+
+            try {
+                const response = await fetch('https://formsubmit.co/ajax/chalinalintangabadi@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    formStatus.classList.remove('text-yellow-500');
+                    formStatus.classList.add('text-green-500');
+                    formStatus.textContent = 'Pesan berhasil dikirim!';
+                    contactForm.reset();
+                } else {
+                    formStatus.classList.remove('text-yellow-500');
+                    formStatus.classList.add('text-red-500');
+                    formStatus.textContent = result.message || 'Gagal mengirim pesan.';
+                }
+            } catch (error) {
+                formStatus.classList.remove('text-yellow-500');
+                formStatus.classList.add('text-red-500');
+                formStatus.textContent = 'Terjadi kesalahan koneksi.';
+            }
+        });
     </script>
 </Layout>
