@@ -60,6 +60,12 @@ body {
 
 .animate-float {
     animation: float 4s ease-in-out infinite;
+    will-change: transform;
+}
+
+.hero-orb {
+    will-change: transform;
+    contain: layout paint;
 }
 
 .animate-glow {
@@ -249,8 +255,7 @@ input:focus, textarea:focus {
     position: absolute;
     inset: -2px;
     background: linear-gradient(90deg, #eab308, #fde047, #ca8a04, #eab308);
-    background-size: 300% 100%;
-    animation: card-shimmer 3s linear infinite;
+    background-size: 100% 100%;
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease;

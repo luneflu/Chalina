@@ -18,16 +18,19 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: "Inter", weights: [400, 500, 600, 700],
       cssVariable: "--font-sans",
+      display: "swap",
     },
     {
       provider: fontProviders.fontsource(),
       name: "Syne", weights: [400, 800],
       cssVariable: "--font-syne",
+      display: "swap",
     },
     {
       provider: fontProviders.fontsource(),
       name: "Inconsolata", weights: [200, 900],
       cssVariable: "--font-mono",
+      display: "swap",
     }
   ]
 });
