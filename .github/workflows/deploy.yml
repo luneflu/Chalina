@@ -1,4 +1,4 @@
-name: Deploy Astro site to SSH
+name: Deploy to SSH
 
 on:
   push:
@@ -6,8 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -15,6 +14,8 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
+        with:
+          version: 9
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -26,23 +27,6 @@ jobs:
 
       - name: Build with Astro
         run: pnpm run build
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: dist
-          path: dist/
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v8
-        with:
-          name: dist
-          path: dist
 
       - name: Clean previous files
         uses: appleboy/ssh-action@v1
