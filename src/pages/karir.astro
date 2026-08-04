@@ -45,7 +45,7 @@ import Icon from '../components/Icon.astro';
             <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
             <img
-              src="images/poster-lowongan-placeholder.webp"
+              src="/images/poster-lowongan-placeholder.webp"
               alt="Poster Rekrutmen PT Cahaya Lintang Abadi"
               class="w-full h-auto max-h-[850px] object-contain rounded-lg relative z-10 shadow-lg cursor-pointer hover:scale-[1.01] transition-transform duration-300"
               id="poster-img"
@@ -87,7 +87,6 @@ import Icon from '../components/Icon.astro';
                 <Icon icon="fa-solid fa-circle-check" class="text-yellow-400 mt-1 flex-shrink-0" />
                 <span>Memiliki pengalaman kerja minimal 2 tahun dalam administrasi dan 
                   operasi maintenance project.</span>
-
               </li>
               <li class="flex items-start gap-2.5">
                 <Icon icon="fa-solid fa-circle-check" class="text-yellow-400 mt-1 flex-shrink-0" />
@@ -118,27 +117,26 @@ import Icon from '../components/Icon.astro';
                 <span>Curriculum Vitae (CV) Terbaru</span>
               </div>
             </div>
-            <!-- Direct Submit Email CTA Box -->
+            
+            <!-- Direct Submit Email CTA Box - PERBAIKAN -->
             <div class="p-5 bg-gradient-to-br from-neutral-950 to-neutral-900 border border-yellow-500/30 rounded-xl relative overflow-hidden">
               <div class="mb-4">
                 <span class="text-xs text-yellow-400 font-mono font-semibold uppercase tracking-wider block mb-1">Kirim Lamaran Sekarang</span>
                 <p class="text-xs text-neutral-400">
-                  Kirimkan berkas lamaran Anda via email ke alamat resmi rekrutmen kami di bawah ini:
+                  Kirimkan berkas lamaran Anda melalui Gmail langsung ke alamat rekrutmen kami:
                 </p>
               </div>
 
               <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <!-- Mailto Button -->
-                <a
-                  href="mailto:contact@cahayalintangabadi.com?subject=Lamaran%20Pekerjaan%20-%20[Nama%20Lengkap]"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  id="send-email-btn"
+                <!-- PERBAIKAN: Tombol Buka Gmail Langsung -->
+                <button
+                  id="open-gmail-btn"
+                  type="button"
                   class="flex-1 bg-yellow-500 hover:bg-yellow-400 text-neutral-950 font-bold text-xs md:text-sm py-3 px-5 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-yellow-500/20 cursor-pointer"
                 >
-                  <Icon icon="fa-solid fa-paper-plane" />
-                  Kirim CV Via Email
-                </a>
+                  <Icon icon="fa-solid fa-envelope" />
+                  Buka Gmail & Kirim Lamaran
+                </button>
 
                 <!-- Copy Email Button -->
                 <button
@@ -202,29 +200,65 @@ import Icon from '../components/Icon.astro';
     </div>
   </main>
 
+  <!-- PERBAIKAN SCRIPT: Direct Gmail + Copy Email -->
   <script>
-    const sendEmailBtn = document.getElementById('send-email-btn') as HTMLAnchorElement;
+    const gmailBtn = document.getElementById('open-gmail-btn');
     const copyBtn = document.getElementById('copy-email-btn');
     const copyText = document.getElementById('copy-text');
-    const copyIcon = document.getElementById('copy-icon');
+    const recipientEmail = 'contact@cahayalintangabadi.com';
+    const emailSubject = 'Lamaran Pekerjaan - [Nama Lengkap]';
+    const emailBody = `Yth. Tim HRD PT Cahaya Lintang Abadi,
 
-    sendEmailBtn?.addEventListener('click', (e) => {
-      const email = 'contact@cahayalintangabadi.com';
-      const subject = encodeURIComponent('Lamaran Pekerjaan - [Nama Lengkap]');
-      const mailtoUrl = `mailto:${email}?subject=${subject}`;
+Saya mengajukan lamaran pekerjaan di perusahaan Bapak/Ibu.
 
-      // Fallback fallback handler if default email app is not registered/associated
-      window.location.href = mailtoUrl;
+Berikut saya lampirkan berkas lamaran:
+1. Curriculum Vitae (CV) Terbaru
+
+Demikian lamaran ini saya sampaikan. Terima kasih atas perhatiannya.
+
+Hormat saya,
+[Nama Lengkap]
+[No. Telepon]
+[Email]`;
+
+    // Fungsi untuk membuka Gmail langsung
+    gmailBtn?.addEventListener('click', () => {
+      // Encode subject dan body untuk URL
+      const encodedSubject = encodeURIComponent(emailSubject);
+      const encodedBody = encodeURIComponent(emailBody);
+      
+      // Buat Gmail compose URL
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipientEmail}&su=${encodedSubject}&body=${encodedBody}`;
+      
+      // Buka di tab baru
+      window.open(gmailUrl, '_blank', 'noopener,noreferrer');
     });
 
+    // Fungsi copy email
     copyBtn?.addEventListener('click', () => {
-      const email = copyBtn.getAttribute('data-email') || 'contact@cahayalintangabadi.com';
+      const email = copyBtn.getAttribute('data-email') || recipientEmail;
       navigator.clipboard.writeText(email).then(() => {
-        if (copyText) copyText.textContent = 'Tersalin!';
-
-        setTimeout(() => {
-          if (copyText) copyText.textContent = 'Salin Email';
-        }, 2500);
+        if (copyText) {
+          copyText.textContent = 'Tersalin!';
+          setTimeout(() => {
+            copyText.textContent = 'Salin Email';
+          }, 2500);
+        }
+      }).catch(err => {
+        console.error('Gagal menyalin email:', err);
+        // Fallback untuk browser yang tidak support clipboard API
+        const textarea = document.createElement('textarea');
+        textarea.value = email;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        if (copyText) {
+          copyText.textContent = 'Tersalin!';
+          setTimeout(() => {
+            copyText.textContent = 'Salin Email';
+          }, 2500);
+        }
       });
     });
   </script>
