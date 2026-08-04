@@ -200,6 +200,87 @@ import Icon from '../components/Icon.astro';
     </div>
   </main>
 
+  <footer class="w-full bg-neutral-950 pt-16 pb-10 px-4 md:px-8 flex flex-col items-center border-t border-white/10">
+    <div class="w-full max-w-[1440px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-1.5">
+          <a href="/#beranda" class="flex items-center">
+            <img
+              src="/images/logo-cla.webp"
+              alt="PT Cahaya Lintang Abadi Logo"
+              width="212"
+              height="226"
+              class="h-8 md:h-10 w-auto object-contain"
+              loading="lazy"
+            />
+            <span class="brand-text text-white text-sm font-semibold ml-2 uppercase">CAHAYA LINTANG ABADI</span>
+          </a>
+        </div>
+        <p class="font-mono text-xs text-white mt-4">Partner In Excellence</p>
+      </div>
+
+      <div class="flex flex-col">
+        <p class="font-mono text-xs text-white uppercase tracking-wider mb-4">Navigasi Cepat</p>
+        <ul class="flex flex-col gap-3">
+          <li>
+            <a href="/#beranda" class="font-sans text-xs text-neutral-300 hover:text-white transition-colors">Beranda</a>
+          </li>
+          <li>
+            <a href="/#tentang" class="font-sans text-xs text-neutral-300 hover:text-white transition-colors">Tentang Profil</a>
+          </li>
+          <li>
+            <a href="/#visi-misi" class="font-sans text-xs text-neutral-300 hover:text-white transition-colors">Visi & Misi</a>
+          </li>
+          <li>
+            <a href="/#layanan" class="font-sans text-xs text-neutral-300 hover:text-white transition-colors">Core Capability Matrix</a>
+          </li>
+          <li>
+            <a href="/karir" class="font-sans text-xs text-neutral-300 hover:text-white transition-colors">Karir & Lowongan</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col">
+        <p class="font-mono text-xs text-white uppercase tracking-wider mb-4">Produk Layanan</p>
+        <ul class="flex flex-col gap-2">
+          <li>
+            <a href="/#layanan" class="font-sans text-xs text-white hover:text-yellow-500 transition-colors">Toll Road Care</a>
+          </li>
+          <li>
+            <a href="/#layanan" class="font-sans text-xs text-white hover:text-yellow-500 transition-colors">Joint Works Construction</a>
+          </li>
+          <li>
+            <a href="/#layanan" class="font-sans text-xs text-white hover:text-yellow-500 transition-colors">Drainage Management</a>
+          </li>
+          <li>
+            <a href="/#layanan" class="font-sans text-xs text-white hover:text-yellow-500 transition-colors">Manpower supply</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col">
+        <p class="font-mono text-xs text-white uppercase tracking-wider mb-4">Kantor Utama</p>
+        <div class="flex flex-col gap-3">
+          <p class="font-mono text-xs text-white leading-relaxed">
+            Mensana Tower LT 6 Unit K, Jatiasih, Kota Bekasi, Jawa Barat
+          </p>
+          <p class="font-mono text-xs text-white">Whatsapp: 0823 2081 3439</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full max-w-[1440px] pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-mono text-xs text-neutral-400">
+        &copy; {new Date().getFullYear()} PT Cahaya Lintang Abadi. All rights reserved.
+      </p>
+      <div class="flex gap-6">
+        <a href="/#beranda" class="font-mono text-xs text-neutral-400 hover:text-white transition-colors">Beranda</a>
+        <a href="/#kontak" class="font-mono text-xs text-neutral-400 hover:text-white transition-colors">Kontak</a>
+        <a href="/karir" class="font-mono text-xs text-neutral-400 hover:text-white transition-colors">Karir</a>
+      </div>
+    </div>
+  </footer>
+
   <!-- PERBAIKAN SCRIPT: Direct Gmail + Copy Email -->
   <script>
     const gmailBtn = document.getElementById('open-gmail-btn');
