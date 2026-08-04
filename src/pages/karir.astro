@@ -207,28 +207,15 @@ import Icon from '../components/Icon.astro';
     const copyText = document.getElementById('copy-text');
     const recipientEmail = 'contact@cahayalintangabadi.com';
     const emailSubject = 'Lamaran Pekerjaan - [Nama Lengkap]';
-    const emailBody = `Yth. Tim HRD PT Cahaya Lintang Abadi,
-
-Saya mengajukan lamaran pekerjaan di perusahaan Bapak/Ibu.
-
-Berikut saya lampirkan berkas lamaran:
-1. Curriculum Vitae (CV) Terbaru
-
-Demikian lamaran ini saya sampaikan. Terima kasih atas perhatiannya.
-
-Hormat saya,
-[Nama Lengkap]
-[No. Telepon]
-[Email]`;
-
+    
     // Fungsi untuk membuka Gmail langsung
     gmailBtn?.addEventListener('click', () => {
       // Encode subject dan body untuk URL
       const encodedSubject = encodeURIComponent(emailSubject);
-      const encodedBody = encodeURIComponent(emailBody);
+    
       
       // Buat Gmail compose URL
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipientEmail}&su=${encodedSubject}&body=${encodedBody}`;
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipientEmail}&su=${encodedSubject}`;
       
       // Buka di tab baru
       window.open(gmailUrl, '_blank', 'noopener,noreferrer');
